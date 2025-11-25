@@ -2,6 +2,7 @@
 # Descarga SOLO los períodos que aún no existen localmente.
 # Estructura: <ROOT>/<año>/<periodo>/(modal_n)/archivos…
 
+import shutil
 import tempfile
 import re, time, os
 from pathlib import Path
@@ -40,8 +41,10 @@ opt.add_argument("--no-sandbox")
 opt.add_argument("--disable-dev-shm-usage")
 opt.add_argument("--headless")  # Quita si necesitas ver la UI
 # opt.add_argument("--start-maximized")
+DOWNLOAD_TMP = Path(ROOT) / "_tmp"
+DOWNLOAD_TMP.mkdir(parents=True, exist_ok=True)
 opt.add_experimental_option("prefs", {
-    "download.default_directory": str(ROOT),
+    "download.default_directory": str(DOWNLOAD_TMP),
     "profile.default_content_settings.popups": 0,
     "download.prompt_for_download": False,
     "download.directory_upgrade": True,
@@ -56,6 +59,12 @@ slug = lambda s: re.sub(r"\W+", "_", s).strip("_")
 MASK = (By.CSS_SELECTOR, "div.ui-widget-overlay.ui-dialog-mask")
 
 # ────────── UTILIDADES ──────────
+def move_new_files(dst: Path):
+    dst.mkdir(parents=True, exist_ok=True)
+    for f in DOWNLOAD_TMP.glob("*"):
+        if f.is_file():
+            shutil.move(str(f), dst / f.name)
+
 def wait_mask_off():
     try:
         WebDriverWait(drv, 25, 0.10).until(EC.invisibility_of_element_located(MASK))
@@ -162,7 +171,7 @@ for anio in iter_select(ID_YEAR_L, ID_YEAR_F):
             continue
 
         print(f"⬇ Nuevo período: {anio} - {periodo}")
-        set_dir(per_dir)
+        move_new_files(per_dir)
 
         fila, idx_modal = 0, 1
         while True:
