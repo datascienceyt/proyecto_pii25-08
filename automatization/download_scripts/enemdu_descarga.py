@@ -30,6 +30,11 @@ opt = webdriver.ChromeOptions()
 # Perfil temporal único para evitar “already in use”
 profile_dir = tempfile.mkdtemp(prefix="selenium-profile-")
 opt.add_argument(f"--user-data-dir={profile_dir}")
+# Evitar problemas con SSL caducados
+opt.set_capability("acceptInsecureCerts", True)
+opt.add_argument("--ignore-certificate-errors")
+opt.add_argument("--ignore-ssl-errors=yes")
+opt.add_argument("--allow-insecure-localhost")
 # Flags recomendados en Docker
 opt.add_argument("--no-sandbox")
 opt.add_argument("--disable-dev-shm-usage")
@@ -143,7 +148,7 @@ wait.until(EC.element_to_be_clickable(
     (By.XPATH, "//td[span[text()='Trabajo']]"))).click()
 print("Iniciando descarga de ENEMDU (INEC)...")
 
-ID_YEAR_L, ID_YEAR_F = "frmBi:lstOE:3:j_idt100_label", "frmBi:lstOE:3:j_idt100_focus"
+ID_YEAR_L, ID_YEAR_F = "frmBi:lstOE:3:j_idt99_label", "frmBi:lstOE:3:j_idt99_focus"
 ID_PER_L , ID_PER_F  = "frmBi:slPeriodos_label"   , "frmBi:slPeriodos_focus"
 ROWS_CSS             = "#frmBi\\:lstArchDescarga_data > tr"
 

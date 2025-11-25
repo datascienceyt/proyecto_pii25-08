@@ -110,7 +110,6 @@ services:
     volumes:
       # Diccionario
       - ./data/diccionario:/data/diccionario:rw
-      - ./data/diccionario:/data/diccionario:rw
       # ENEMDU persona
       - ./data/enemdu_persona/unprocessed:/data/enemdu_persona/unprocessed:rw
       - ./data/enemdu_persona/processed:/data/enemdu_persona/processed:rw
