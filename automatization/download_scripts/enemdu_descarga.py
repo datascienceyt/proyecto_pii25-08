@@ -71,10 +71,34 @@ def wait_mask_off():
     except TimeoutException:
         pass
 
-def set_dir(p: Path):
-    os.makedirs(p, exist_ok=True)
-    drv.execute_cdp_cmd("Page.setDownloadBehavior",
-                        {"behavior": "allow", "downloadPath": str(p)})
+def clear_tmp():
+    for f in DOWNLOAD_TMP.glob("*"):
+        if f.is_file():
+            f.unlink()
+
+def wait_for_downloads(timeout=300):
+    """Espera a que no haya .crdownload en DOWNLOAD_TMP (hasta timeout segundos)."""
+    end = time.time() + timeout
+    last_count = None
+    stable_for = 0
+
+    while time.time() < end:
+        files = list(DOWNLOAD_TMP.glob("*"))
+        cr_in_progress = [f for f in files if f.suffix == ".crdownload"]
+
+        # condición 1: no hay descargas en curso
+        if not cr_in_progress:
+            # condición 2 (opcional): número de archivos estable un par de ciclos
+            count = len(files)
+            if count == last_count:
+                stable_for += 1
+                if stable_for >= 2:
+                    break
+            else:
+                stable_for = 0
+                last_count = count
+
+        time.sleep(1)
 
 def close_modal():
     try:
@@ -87,9 +111,6 @@ def close_modal():
 
 def dl_modal(dst: Path, idx: int):
     """Descarga TODOS los archivos de un modal paginado."""
-    mdir = dst / f"modal_{idx}"
-    set_dir(mdir)
-
     page = 1
     while True:
         modal = wait.until(EC.presence_of_element_located(
@@ -116,7 +137,6 @@ def dl_modal(dst: Path, idx: int):
         except Exception:
             break
     close_modal()
-    set_dir(dst)  # restaura carpeta del período
 
 def iter_select(label_id: str, focus_id: str):
     """Itera por todos los valores del SelectOneMenu usando ARROW_DOWN."""
@@ -171,7 +191,7 @@ for anio in iter_select(ID_YEAR_L, ID_YEAR_F):
             continue
 
         print(f"⬇ Nuevo período: {anio} - {periodo}")
-        move_new_files(per_dir)
+        clear_tmp()  # limpiamos la carpeta temporal ANTES de descargar este período
 
         fila, idx_modal = 0, 1
         while True:
@@ -186,13 +206,20 @@ for anio in iter_select(ID_YEAR_L, ID_YEAR_F):
             if "varios.png" in imgsrc.lower():
                 print(f"  • ({fila+1}) '{nombre}' → MODAL")
                 drv.execute_script("arguments[0].click();", boton)
-                dl_modal(per_dir, idx_modal); idx_modal += 1
+                dl_modal(per_dir, idx_modal)  # solo hace clics y cierra modal
+                idx_modal += 1
             else:
                 print(f"  • ({fila+1}) '{nombre}' → directa")
                 drv.execute_script("arguments[0].click();", boton)
-                time.sleep(1.0)  # espera descarga
+                time.sleep(1.0)  # pequeña espera entre descargas
 
             fila += 1
+
+        # Cuando ya procesaste todas las filas del período:
+        print("  Esperando a que terminen las descargas...")
+        wait_for_downloads()
+        print("  Moviendo archivos descargados al período...")
+        move_new_files(per_dir)
 
 print("\nActualización mensual completada.")
 drv.quit()
