@@ -1,0 +1,38 @@
+# RAW DATA
+data/enemdu_persona/processed/*
+data/enemdu_persona/unprocessed/*
+data/enemdu_vivienda/processed/*
+data/enemdu_vivienda/unprocessed/*
+data/latinobarometro/normalized_csv/*
+data/latinobarometro/processed/*
+data/latinobarometro/unprocessed_csv/*
+data/latinobarometro/unprocessed_dta/*
+data/VDEM/*
+data/raw/ENEMDU/*/*
+data/raw/latinobarometro/*/*
+data/raw/VDEM/*
+
+# Automatization
+automatization/ingest/errors/**
+automatization/ingest/logs/**
+
+# Web App Modules
+web_app/frontend/app/node_modules
+
+# Volumes
+volumes/*
+
+# ENV
+.env
+
+# Extra
+.vscode
+**/.DS_Store
+automatization/ingest/calcular_indicadores_test.ipynb
+test_sav.ipynb
+graficos_Indicadores.ipynb
+EDA_Personas.ipynb
+Latinobarometro_diccionario.ipynb
+Graphs.ipynb
+latinobarometro_check
+val

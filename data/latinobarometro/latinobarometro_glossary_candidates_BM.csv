@@ -1,0 +1,668 @@
+﻿year;question;label;normalization;normalization_Milagros
+1995;p20;Support for democracy;democ_supp;A_1
+1996;p19;Support for democracy;democ_supp;A_1
+1997;sp31;Support for democracy;democ_supp;A_1
+1998;sp28;Support for democracy;democ_supp;A_1
+2000;P29ST;Support for democracy;democ_supp;A_1
+2001;p46st;Support for democracy;democ_supp;A_1
+2002;p32st;Support for democracy;democ_supp;A_1
+2003;p14st;Support for democracy;democ_supp;A_1
+2004;p13st;Support for democracy;democ_supp;A_1
+2005;p16st;Support for democracy;democ_supp;A_1
+2006;p17st;Support for democracy;democ_supp;A_1
+2007;p9st;Support for democracy;democ_supp;A_1
+2008;p13st;Support for democracy;democ_supp;A_1
+2009;p10st;Support for democracy;democ_supp;A_1
+2010;P10ST;Support for democracy;democ_supp;A_1
+2011;P13ST;Support for democracy;democ_supp;A_1
+2013;P12STGBS;Support for democracy;democ_supp;A_1
+2015;P11STGBS;Support for democracy;democ_supp;A_1
+2016;P8STGBS;Support for democracy;democ_supp;A_1
+2017;P8STGBS;Support for democracy;democ_supp;A_1
+2018;P12STGBS;Support for democracy;democ_supp;A_1
+2020;P10STGBS;Support of democracy;democ_supp;A_1
+2023;P10STGBS;Support for democracy;democ_supp;A_1
+2024;P11STGBS;Support for democracy;democ_supp;A_1
+1995;p21;Satisfaction with democracy;democ_satis;A_1-1
+1996;p20;Satisfaction with democracy;democ_satis;A_1-1
+1997;sp32;Satisfaction with democracy;democ_satis;A_1-1
+1998;sp29;Satisfaction with democracy;democ_satis;A_1-1
+2000;P30ST;Satisfaction with democracy;democ_satis;A_1-1
+2001;p45st;Satisfaction with democracy;democ_satis;A_1-1
+2002;p33st;Satisfaction with democracy;democ_satis;A_1-1
+2003;p15st;Satisfaction with democracy;democ_satis;A_1-1
+2004;p14st;Satisfaction with democracy;democ_satis;A_1-1
+2005;p18st;Satisfaction with democracy;democ_satis;A_1-1
+2006;p21st;Satisfaction with democracy;democ_satis;A_1-1
+2007;p12st;Satisfaction with democracy;democ_satis;A_1-1
+2008;p22st_a;Satisfaction with democracy;democ_satis;A_1-1
+2009;p12st_a;Satisfaction with democracy;democ_satis;A_1-1
+2010;P11ST_A;Satisfaction with democracy;democ_satis;A_1-1
+2011;P14ST_A;Satisfaction with democracy;democ_satis;A_1-1
+2013;P13TGB_A;Satisfaction with democracy;democ_satis;A_1-1
+2015;P12TG_A;Satisfaction with democracy;democ_satis;A_1-1
+2016;P9STGBSA;Satisfaction with democracy;democ_satis;A_1-1
+2017;P9STGBSC_A;Satisfaction with democracy;democ_satis;A_1-1
+2018;P13STGBS.A;Satisfaction with democracy;democ_satis;A_1-1
+2020;P11STGBS_A;Satisfaction with democracy;democ_satis;A_1-1
+2023;P11STGBS_A;Satisfaction with democracy;democ_satis;A_1-1
+2024;P12STGBS.A;Satisfaction with democracy;democ_satis;A_1-1
+1995;p31;Self-positioning in Left- Right scale;left_right_scale;A_2
+1996;p38;Self-positioning in Left- Right scale;left_right_scale;A_2
+1997;sp56;Self-positioning in Left- Right scale;left_right_scale;A_2
+1998;sp52;Self-positioning in Left- Right scale;left_right_scale;A_2
+2000;P52ST;Self-positioning in Left- Right scale;left_right_scale;A_2
+2001;p54st;Self-positioning in Left- Right scale;left_right_scale;A_2
+2002;p64st;Self-positioning in Left- Right scale;left_right_scale;A_2
+2003;p60st;Self-positioning in Left- Right scale;left_right_scale;A_2
+2004;p87st;Self-positioning in Left- Right scale;left_right_scale;A_2
+2005;p34st;Self-positioning in Left- Right scale;left_right_scale;A_2
+2006;p47st;Self-positioning in Left- Right scale;left_right_scale;A_2
+2007;p67st;Self-positioning in Left- Right scale;left_right_scale;A_2
+2008;p56st;Self-positioning in Left- Right scale;left_right_scale;A_2
+2009;p69st;Self-positioning in Left- Right scale;left_right_scale;A_2
+2010;P60ST;Self-positioning in Left- Right scale;left_right_scale;A_2
+2011;P76ST;Self-positioning in Left- Right scale;left_right_scale;A_2
+2013;P41ST;Self-positioning in Left- Right scale;left_right_scale;A_2
+2015;P27ST;Self-positioning in Left- Right scale;left_right_scale;A_2
+2016;P17ST;Self-positioning in Left- Right scale;left_right_scale;A_2
+2017;P19STC;Self-positioning in Left- Right scale;left_right_scale;A_2
+2018;P22ST;Self-positioning in Left- Right scale;left_right_scale;A_2
+2020;P18ST;Self-positioning in Left- Right scale;left_right_scale;A_2
+2023;P16ST;Self-positioning on Left-Right scale;left_right_scale;A_2
+2024;P16ST;Self-positioning on Left-Right scale;left_right_scale;A_2
+1995;p33;For which party would you vote this Sunday?;elections_vote;A_3
+1996;p40;For which party would you vote this Sunday?;elections_vote;A_3
+1997;sp58;For which party would you vote this Sunday?;elections_vote;A_3
+1998;sp53;For which party would you vote this Sunday?;elections_vote;A_3
+2000;P54ST;For which party would you vote this Sunday?;elections_vote;A_3
+2001;p55st;For which party would you vote this Sunday?;elections_vote;A_3
+2002;p45st;For which party would you vote this Sunday?;elections_vote;A_3
+2003;p54st;For which party would you vote this Sunday?;elections_vote;A_3
+2004;p30st;For which party would you vote this Sunday?;elections_vote;A_3
+2005;p48st;For which party would you vote this Sunday?;elections_vote;A_3
+2006;p38st;For which party would you vote this Sunday?;elections_vote;A_3
+2007;p64st;For which party would you vote this Sunday?;elections_vote;A_3
+2008;p61st;For which party would you vote this Sunday?;elections_vote;A_3
+2009;P35ST;For which party would you vote this Sunday?;elections_vote;A_3
+2010;P29ST;For which party would you vote this Sunday?;elections_vote;A_3
+2011;P38ST;For which party would you vote this Sunday?;elections_vote;A_3
+2013;P22TGBSM;If elections were held this Sunday, which party would you vote for?;elections_vote;A_3
+2015;P23TGBSM;If elections were held this Sunday, which party would you vote for?;elections_vote;A_3
+2016;P15STGBS;For which party would you vote this sunday?;elections_vote;A_3
+2017;P16STGBS;Which party would you vote if elections where next Sunday;elections_vote;A_3
+2018;P21STGBS.A;Which party would you vote for if elections where next Sunday;elections_vote;A_3
+2020;P50STGBS_A;If elections where this Sunday_ Which party would you vote for?;elections_vote;A_3
+2023;P43STGBS_A;If elections were this Sunday, which party would you vote for;elections_vote;A_3
+2024;P39STGBS.A;If elections were this Sunday, which party would you vote for;elections_vote;A_3
+1995;s12b;Concerned about losing work within the next 12 months;job_concern;C_4
+1996;p14;Concerned about losing work within the next 12 months;job_concern;C_4
+1997;sp81;Concerned about losing work within the next 12 months;job_concern;C_4
+1998;sp78;Concerned about losing work within the next 12 months;job_concern;C_4
+2000;P75ST;Concerned about losing work within the next 12 months;job_concern;C_4
+2001;p35st;Concerned about losing work within the next 12 months;job_concern;C_4
+2002;p26st;Concerned about losing work within the next 12 months;job_concern;C_4
+2003;p89st;Concerned about losing work within the next 12 months;job_concern;C_4
+2004;p88st;Concerned about losing work within the next 12 months;job_concern;C_4
+2005;p85st;Concerned about losing work within the next 12 months;job_concern;C_4
+2006;p91st;Concerned about losing work within the next 12 months;job_concern;C_4
+2007;s1;Concerned about losing work within the next 12 months;job_concern;C_4
+2008;s1;Concerned about losing work within the next 12 months;job_concern;C_4
+2009;s1;Concerned about losing work within the next 12 months;job_concern;C_4
+2010;S3;Concerned about losing work within the next 12 months;job_concern;C_4
+2011;S9;Concerned about losing work within the next 12 months;job_concern;C_4
+2013;S5;Concerned about losing work within the next 12 months;job_concern;C_4
+2015;S3;Concerned about losing work within the next 12 months;job_concern;C_4
+2016;S3;Concerned about losing work within the next 12 months;job_concern;C_4
+2017;S4;Concerned about losing work within the next 12 months;job_concern;C_4
+2018;S3;Concerned about losing work within the next 12 months;job_concern;C_4
+2020;S3;Concerned about losing work within the next 12 months;job_concern;C_4
+2023;S4;How concerned would you say you are that you will be left without work or unemployed during the next 12 months? Or don´t you have a job?;job_concern;C_4
+2024;S4;Worry about being out of work within the next twelve months;job_concern;C_4
+1995;p1;Current economic situation of the country;econ_situation;D_5
+1996;p1;Current economic situation of the country;econ_situation;D_5
+1997;sp1;Current economic situation of the country;econ_situation;D_5
+1998;sp1;Current economic situation of the country;econ_situation;D_5
+2000;P1ST;Current economic situation of the country;econ_situation;D_5
+2001;p1st;Current economic situation of the country;econ_situation;D_5
+2002;p2sta;Current economic situation of the country;econ_situation;D_5
+2003;p1st;Current economic situation of the country;econ_situation;D_5
+2004;p2st;Current economic situation of the country;econ_situation;D_5
+2005;p2st;Current economic situation of the country;econ_situation;D_5
+2006;p2st;Current economic situation of the country;econ_situation;D_5
+2007;p100st;Current economic situation of the country;econ_situation;D_5
+2008;p4st;Current economic situation of the country;econ_situation;D_5
+2009;p3st_a;Current economic situation of the country;econ_situation;D_5
+2010;P3ST_A;Current economic situation of the country;econ_situation;D_5
+2011;P3ST_A;Current economic situation of the country;econ_situation;D_5
+2013;P3STGBS;Current economic situation of the country;econ_situation;D_5
+2015;P3STGBS;Current economic situation of the country;econ_situation;D_5
+2016;P4STGBS;Current economic situation of the country;econ_situation;D_5
+2017;P4STGBSC;Current economic situation of the country;econ_situation;D_5
+2018;P6STGBSC;Current economic situation of the country;econ_situation;D_5
+2020;P4STGBS;Current economic situation of the country;econ_situation;D_5
+2023;P5STGBS;Current economic situation of the country;econ_situation;D_5
+2024;P6STGBS;Current economic situation of the country;econ_situation;D_5
+1995;s13g;Goods: Washing machine;goods_wash_mach;D_6
+1996;s10g;Goods: Washing machine;goods_wash_mach;D_6
+1997;s9g;Goods: Washing machine;goods_wash_mach;D_6
+1998;s9e;Goods: Washing machine;goods_wash_mach;D_6
+2000;S10E;Goods: Washing machine;goods_wash_mach;D_6
+2001;s10e;Goods: Washing machine;goods_wash_mach;D_6
+2002;s10e;Goods: Washing machine;goods_wash_mach;D_6
+2003;s10e;Goods: Washing machine;goods_wash_mach;D_6
+2004;s10e;Goods: Washing machine;goods_wash_mach;D_6
+2005;s15e;Goods: Washing machine;goods_wash_mach;D_6
+2006;s15e;Goods: Washing machine;goods_wash_mach;D_6
+2007;s19e;Goods: Washing machine;goods_wash_mach;D_6
+2008;s19e;Goods: Washing machine;goods_wash_mach;D_6
+2009;s19g;Goods: Washing machine;goods_wash_mach;D_6
+2010;S21G;Goods: Washing machine;goods_wash_mach;D_6
+2011;S28E;Goods: Washing machine;goods_wash_mach;D_6
+2013;S22_E;Goods: Washing machine;goods_wash_mach;D_6
+2015;S24_E;Goods: Washing machine;goods_wash_mach;D_6
+2016;S16E;Goods: Washing machine;goods_wash_mach;D_6
+2017;S17_E;Goods: Washing machine;goods_wash_mach;D_6
+2020;S26_D;Owned goods: Washing machine;goods_wash_mach;D_6
+2023;S20_C;Goods: Washing machine;goods_wash_mach;D_6
+2024;S20C;Goods: Washing machine/washing machine;goods_wash_mach;D_6
+1995;s13i;Goods: Car;goods_car;D_7
+1996;s10i;Goods: Car;goods_car;D_7
+1997;s9i;Goods: Car;goods_car;D_7
+1998;s9g;Goods: Car;goods_car;D_7
+2000;S10G;Goods: Car;goods_car;D_7
+2001;s10g;Goods: Car;goods_car;D_7
+2002;s10g;Goods: Car;goods_car;D_7
+2003;s10g;Goods: Car;goods_car;D_7
+2004;s10g;Goods: Car;goods_car;D_7
+2005;s15h;Goods: Car;goods_car;D_7
+2006;s15h;Goods: Car;goods_car;D_7
+2007;s19h;Goods: Car;goods_car;D_7
+2008;s19h;Goods: Car;goods_car;D_7
+2009;s19j;Goods: Car;goods_car;D_7
+2010;S21J;Goods: Car;goods_car;D_7
+2011;S28H;Goods: Car;goods_car;D_7
+2013;S22_H;Goods: Car;goods_car;D_7
+2015;S24_I;Goods: Car;goods_car;D_7
+2016;S16I;Goods: Car;goods_car;D_7
+2017;S17_I;Goods: Car;goods_car;D_7
+2020;S26_G;Owned goods: Car;goods_car;D_7
+2023;S20_E;Goods: Car;goods_car;D_7
+2024;S20E;Goods: Car;goods_car;D_7
+1995;s13m;Goods: Sewage system;goods_sewage;D_8
+1996;s10m;Goods: Sewage system;goods_sewage;D_8
+1997;s9m;Goods: Sewage system;goods_sewage;D_8
+1998;s9m;Goods: Sewage system;goods_sewage;D_8
+2000;S10M;Goods: Sewage system;goods_sewage;D_8
+2001;s10k;Goods: Sewage system;goods_sewage;D_8
+2002;s10k;Goods: Sewage system;goods_sewage;D_8
+2003;s10k;Goods: Sewage system;goods_sewage;D_8
+2004;s10k;Goods: Sewage system;goods_sewage;D_8
+2005;s15l;Goods: Sewage system;goods_sewage;D_8
+2006;s15l;Goods: Sewage system;goods_sewage;D_8
+2007;s19l;Goods: Sewage system;goods_sewage;D_8
+2008;s19l;Goods: Sewage system;goods_sewage;D_8
+2009;s19n;Goods: Sewage system;goods_sewage;D_8
+2010;S21N;Goods: Sewage system;goods_sewage;D_8
+2011;S28K;Goods: Sewage system;goods_sewage;D_8
+2013;S22_K;Goods: Sewage system;goods_sewage;D_8
+2015;S24_K;Goods: Sewage system;goods_sewage;D_8
+2016;S16K;Goods: Sewage system;goods_sewage;D_8
+2017;S17_K;Goods: Sewage system;goods_sewage;D_8
+2020;S26_I;Owned goods: Sewage system;goods_sewage;D_8
+2023;S20_G;Goods: Sewage system;goods_sewage;D_8
+2024;S20G;Goods: Sewerage/Sewers;goods_sewage;D_8
+1995;s13l;Goods: Hot water;goods_hot_water;D_9
+1996;s10l;Goods: Hot water;goods_hot_water;D_9
+1997;s9l;Goods: Hot water;goods_hot_water;D_9
+1998;s9l;Goods: Hot water;goods_hot_water;D_9
+2000;S10L;Goods: Hot water;goods_hot_water;D_9
+2001;s10j;Goods: Hot water;goods_hot_water;D_9
+2002;s10j;Goods: Hot water;goods_hot_water;D_9
+2003;s10j;Goods: Hot water;goods_hot_water;D_9
+2004;s10j;Goods: Hot water;goods_hot_water;D_9
+2005;s15k;Goods: Hot water;goods_hot_water;D_9
+2006;s15k;Goods: Hot water;goods_hot_water;D_9
+2007;s19k;Goods: Hot water;goods_hot_water;D_9
+2008;s19k;Goods: Hot water;goods_hot_water;D_9
+2009;s19m;Goods: Hot water;goods_hot_water;D_9
+2010;S21M;Goods: Hot water;goods_hot_water;D_9
+2011;S28J;Goods: Hot water;goods_hot_water;D_9
+2013;S22_J;Goods: Hot water;goods_hot_water;D_9
+2015;S24_J;Goods: Hot water;goods_hot_water;D_9
+2016;S16J;Goods: Hot water;goods_hot_water;D_9
+2017;S17_J;Goods: Hot water;goods_hot_water;D_9
+2020;S26_H;Owned goods: Hot water;goods_hot_water;D_9
+2023;S20_F;Goods: Hot water;goods_hot_water;D_9
+2024;S20F;Goods: Hot water from pipes;goods_hot_water;D_9
+1995;p27i;Confidence in National Congress / Parliament;confidence_congress;H_10
+1996;p33i;Confidence in National Congress / Parliament;confidence_congress;H_10
+1997;sp63f;Confidence in National Congress / Parliament;confidence_congress;H_10
+1998;sp38f;Confidence in National Congress / Parliament;confidence_congress;H_10
+2000;P35ST_F;Confidence in National Congress / Parliament;confidence_congress;H_10
+2001;p61stf;Confidence in National Congress / Parliament;confidence_congress;H_10
+2002;p36std;Confidence in National Congress / Parliament;confidence_congress;H_10
+2003;p21stf;Confidence in National Congress / Parliament;confidence_congress;H_10
+2004;p34stf;Confidence in National Congress / Parliament;confidence_congress;H_10
+2005;p45sta;Confidence in National Congress / Parliament;confidence_congress;H_10
+2006;p24st_f;Confidence in National Congress / Parliament;confidence_congress;H_10
+2007;p24st_f;Confidence in National Congress / Parliament;confidence_congress;H_10
+2008;p28st_a;Confidence in National Congress / Parliament;confidence_congress;H_10
+2009;p26st_a;Confidence in National Congress / Parliament;confidence_congress;H_10
+2010;P20ST_A;Confidence in National Congress / Parliament;confidence_congress;H_10
+2011;P22ST_A;Confidence in National Congress / Parliament;confidence_congress;H_10
+2013;P26TGB_C;Trust: National Congress/Parliament;confidence_congress;H_10
+2015;P16ST_F;Confidence in National Congress / Parliament;confidence_congress;H_10
+2016;P13STD;Confidence in National Congress / Parliament;confidence_congress;H_10
+2017;P14ST_D;Confidence in National Congress / Parliament;confidence_congress;H_10
+2018;P15STGBSC.D;Confidence in National Congress / Parliament;confidence_congress;H_10
+2020;P13ST_D;Confidence in National Congress / Parliament;confidence_congress;H_10
+2023;P13ST_D;Confidence in the National Congress / Parliament;confidence_congress;H_10
+2024;P14ST.D;Confidence in the National Congress / Parliament;confidence_congress;H_10
+1995;p27d;Confidence in the Judiciary;confidence_judiciary;H_11
+1996;p33d;Confidence in the Judiciary;confidence_judiciary;H_11
+1997;sp63c;Confidence in the Judiciary;confidence_judiciary;H_11
+1998;sp38c;Confidence in the Judiciary;confidence_judiciary;H_11
+2000;P35ST_C;Confidence in the Judiciary;confidence_judiciary;H_11
+2001;p61stc;Confidence in the Judiciary;confidence_judiciary;H_11
+2002;p34stc;Confidence in the Judiciary;confidence_judiciary;H_11
+2003;p21ste;Confidence in the Judiciary;confidence_judiciary;H_11
+2004;p34stb;Confidence in the Judiciary;confidence_judiciary;H_11
+2005;p42std;Confidence in the Judiciary;confidence_judiciary;H_11
+2006;p24st_a;Confidence in the Judiciary;confidence_judiciary;H_11
+2007;p24st_d;Confidence in the Judiciary;confidence_judiciary;H_11
+2008;p28st_b;Confidence in the Judiciary;confidence_judiciary;H_11
+2009;p26st_b;Confidence in the judiciary;confidence_judiciary;H_11
+2010;P20ST_B;Confidence in the Judiciary;confidence_judiciary;H_11
+2011;P22ST_B;Confidence in the Judiciary;confidence_judiciary;H_11
+2013;P26TGB_E;Confidence in the Judiciary;confidence_judiciary;H_11
+2015;P16ST_H;Confidence in the Judiciary;confidence_judiciary;H_11
+2016;P13STF;Confidence in the Judiciary;confidence_judiciary;H_11
+2017;P14ST_F;Confidence in the Judiciary;confidence_judiciary;H_11
+2018;P15STGBSC.F;Confidence in the Judiciary;confidence_judiciary;H_11
+2020;P13ST_F;Confidence in the Judiciary;confidence_judiciary;H_11
+2023;P13ST_F;Confidence in the Judiciary;confidence_judiciary;H_11
+2024;P14ST.F;Confidence in the Judiciary;confidence_judiciary;H_11
+1995;p27a;Confidence in church;confidence_church;H_12
+1996;p33a;Confidence in the Church;confidence_church;H_12
+1997;sp63a;Confidence in the Church;confidence_church;H_12
+1998;sp38a;Confidence in the Church;confidence_church;H_12
+2000;P35ST_A;Confidence in the Church;confidence_church;H_12
+2001;p61sta;Confidence in the Church;confidence_church;H_12
+2002;p34sta;Confidence in the Church;confidence_church;H_12
+2003;p21sta;Confidence in the Church;confidence_church;H_12
+2004;p32stc;Confidence in the Church;confidence_church;H_12
+2005;p42sta;Confidence in the Church;confidence_church;H_12
+2006;p32st_d;Confidence in the Church;confidence_church;H_12
+2007;p27st_c;Confidence in the Church;confidence_church;H_12
+2008;p28st_g;Confidence in the Church;confidence_church;H_12
+2009;p26st_g;Confidence in the Church;confidence_church;H_12
+2010;P20ST_G;Confidence in the Church;confidence_church;H_12
+2011;P22ST_G;Confidence in the Church;confidence_church;H_12
+2013;P28ST_E;Confidence in the Church;confidence_church;H_12
+2015;P16ST_E;Confidence in the Church;confidence_church;H_12
+2016;P13STC;Confidence in the Church;confidence_church;H_12
+2017;P14ST_C;Confidence in the Church;confidence_church;H_12
+2018;P15STGBSC.C;Confidence in the Church;confidence_church;H_12
+2020;P13ST_C;Confidence in the Church;confidence_church;H_12
+2023;P13ST_C;Confidence in the Church;confidence_church;H_12
+2024;P14ST.C;Confidence in the Church;confidence_church;H_12
+1995;p27h;Confidence in the Police;confidence_police;H_13
+1996;p33h;Confidence in the Police;confidence_police;H_13
+1997;sp63e;Confidence in the Police;confidence_police;H_13
+1998;sp38e;Confidence in the Police;confidence_police;H_13
+2000;P35ST_E;Confidence in the Police;confidence_police;H_13
+2001;p61ste;Confidence in the Police;confidence_police;H_13
+2002;p36ste;Confidence in the Police;confidence_police;H_13
+2003;p21stb;Confidence in the Police;confidence_police;H_13
+2004;p32stb;Confidence in the Police;confidence_police;H_13
+2005;p42stf;Confidence in the Police;confidence_police;H_13
+2006;p24st_d;Confidence in the Police;confidence_police;H_13
+2007;p27st_f;Confidence in the Police;confidence_police;H_13
+2008;p31st_c;Confidence in the Police;confidence_police;H_13
+2009;p24st_c;Confidence in the Police;confidence_police;H_13
+2010;P18ST_C;Confidence in the Police;confidence_police;H_13
+2011;P20ST_C;Confidence in the Police;confidence_police;H_13
+2013;P28TGB_B;Confidence in the Police;confidence_police;H_13
+2015;P16TGB_B;Confidence in the Police;confidence_police;H_13
+2016;P13STGBSB;Confidence in the Police;confidence_police;H_13
+2017;P14STGBS_B;Confidence in the Police;confidence_police;H_13
+2018;P15STGBSC.B;Confidence in the Police;confidence_police;H_13
+2020;P13STGBS_B;Confidence in the Police;confidence_police;H_13
+2023;P13STGBS_B;Confidence in the Police;confidence_police;H_13
+2024;P14STGBS.B;Confidence in the Police;confidence_police;H_13
+1995;p27b;Confidence in the armed forces;confidence_army;H_14
+1996;p33b;Confidence in the Armed Forces;confidence_army;H_14
+1997;sp63b;Confidence in the Armed Forces;confidence_army;H_14
+1998;sp38b;Confidence in the Armed Forces;confidence_army;H_14
+2000;P35ST_B;Confidence in the Armed Forces;confidence_army;H_14
+2001;p61stb;Confidence in the Armed Forces;confidence_army;H_14
+2002;p36stb;Confidence in the Armed Forces;confidence_army;H_14
+2003;p21stg;Confidence in the Armed Forces;confidence_army;H_14
+2004;p32stg;Confidence in the Armed Forces;confidence_army;H_14
+2005;p42stb;Confidence in the Armed Forces;confidence_army;H_14
+2006;p32st_e;Confidence in the Armed Forces;confidence_army;H_14
+2007;p27st_d;Confidence in the armed forces;confidence_army;H_14
+2008;p28st_d;Confidence in the armed forces;confidence_army;H_14
+2009;p26st_d;Confidence in the Armed Forces;confidence_army;H_14
+2010;P20ST_D;Confidence in the Armed Forces;confidence_army;H_14
+2011;P22ST_D;Confidence in the Armed Forces;confidence_army;H_14
+2013;P28TGB_A;Confidence in the Armed Forces;confidence_army;H_14
+2015;P16TGB_A;Confidence in the Armed Forces;confidence_army;H_14
+2016;P13STGBSA;Confidence in the Armed Forces;confidence_army;H_14
+2017;P14STGBS_A;Confidence in the Armed Forces;confidence_army;H_14
+2018;P15STGBSC.A;Confidence in the Armed Forces;confidence_army;H_14
+2020;P13STGBS_A;Confidence in the Armed Forces;confidence_army;H_14
+2023;P13STGBS_A;Confidence in the Armed Forces;confidence_army;H_14
+2024;P14STGBS.A;Confidence in the Armed Forces;confidence_army;H_14
+1995;p27j;Confidence in the Political Parties;confidence_political_parties;H_15
+1996;p33j;Confidence in the Political Parties;confidence_political_parties;H_15
+1997;sp63g;Confidence in the Political Parties;confidence_political_parties;H_15
+1998;sp38g;Confidence in the Political Parties;confidence_political_parties;H_15
+2000;P35ST_G;Confidence in the Political Parties;confidence_political_parties;H_15
+2001;p61stg;Confidence in the Political Parties;confidence_political_parties;H_15
+2002;p34stf;Confidence in the Political Parties;confidence_political_parties;H_15
+2003;p21std;Confidence in the Political Parties;confidence_political_parties;H_15
+2004;p34std;Confidence in the Political Parties;confidence_political_parties;H_15
+2005;p47stb;Confidence in the Political Parties;confidence_political_parties;H_15
+2006;p24st_c;Confidence in the Political Parties;confidence_political_parties;H_15
+2007;p27st_e;Confidence in the Political Parties;confidence_political_parties;H_15
+2008;p28st_c;Confidence in the Political Parties;confidence_political_parties;H_15
+2009;p26st_c;Confidence in the Political Parties;confidence_political_parties;H_15
+2010;P20ST_C;Confidence in the Political Parties;confidence_political_parties;H_15
+2011;P22ST_C;Confidence in the Political Parties;confidence_political_parties;H_15
+2013;P26TGB_G;Confidence in the Political Parties;confidence_political_parties;H_15
+2015;P19ST_C;Confidence in the Political Parties;confidence_political_parties;H_15
+2016;P13STG;Confidence in the Political Parties;confidence_political_parties;H_15
+2017;P14ST_G;Confidence in the Political Parties;confidence_political_parties;H_15
+2018;P15STGBSC.G;Confidence in the Political Parties;confidence_political_parties;H_15
+2020;P13ST_G;Confidence in the Political Parties;confidence_political_parties;H_15
+2023;P13ST_G;Confidence in the Political Parties;confidence_political_parties;H_15
+2024;P14ST.G;Confidence in the Political Parties;confidence_political_parties;H_15
+1995;s1;RespondentÂ´s sex;resp_sex;S_16
+1996;s1;Respondent's sex;resp_sex;S_16
+1997;s1;Respondent's sex;resp_sex;S_16
+1998;s1;Respondent's sex;resp_sex;S_16
+2000;S1;Respondent's sex;resp_sex;S_16
+2001;s1;Respondent's sex;resp_sex;S_16
+2002;s1;Respondent's sex;resp_sex;S_16
+2003;s1;Respondent's sex;resp_sex;S_16
+2004;s1;Respondent's sex;resp_sex;S_16
+2005;s6;Respondent's sex;resp_sex;S_16
+2006;s6;Respondent's sex;resp_sex;S_16
+2007;s10;Respondent's sex;resp_sex;S_16
+2008;s8;Respondent's sex;resp_sex;S_16
+2009;s5;Respondent's sex;resp_sex;S_16
+2010;S7;Respondent's sex;resp_sex;S_16
+2011;S16;Respondent's sex;resp_sex;S_16
+2013;S10;Respondent's sex;resp_sex;S_16
+2015;S12;Respondent's sex;resp_sex;S_16
+2016;SEXO;Respondent's sex;resp_sex;S_16
+2017;SEXO;Respondent's sex;resp_sex;S_16
+2018;SEXO;Respondent's sex;resp_sex;S_16
+2020;SEXO;RespondentÂ´s gender;resp_sex;S_16
+2023;SEXO;Sex;resp_sex;S_16
+2024;SEXO;Sex;resp_sex;S_16
+1995;s2;Age;resp_age;S_17
+1996;s2;Respondent's age;resp_age;S_17
+1997;s2;Age;resp_age;S_17
+1998;s2;Age;resp_age;S_17
+2000;S2;Age;resp_age;S_17
+2001;s2;Age;resp_age;S_17
+2002;s2;Age;resp_age;S_17
+2003;s2;Age;resp_age;S_17
+2004;s2;Age;resp_age;S_17
+2005;s7;Age;resp_age;S_17
+2006;s7;Age;resp_age;S_17
+2007;s11;Age;resp_age;S_17
+2008;s9;Age;resp_age;S_17
+2009;s6;Age;resp_age;S_17
+2010;S8;Age;resp_age;S_17
+2011;S17;Age;resp_age;S_17
+2013;S11;Age;resp_age;S_17
+2015;S13;Age;resp_age;S_17
+2016;EDAD;Age;resp_age;S_17
+2017;EDAD;Age;resp_age;S_17
+2018;EDAD;Age;resp_age;S_17
+2020;EDAD;RespondentÂ´s age;resp_age;S_17
+2023;EDAD;Age;resp_age;S_17
+2024;EDAD;Age;resp_age;S_17
+1995;s5a;If respondent Chief Income Earner;resp_chief;S_18
+1996;s4;If respondent Chief Income Earner;resp_chief;S_18
+1997;s4;If respondent Chief Income Earner;resp_chief;S_18
+1998;s4;If respondent Chief Income Earner;resp_chief;S_18
+2000;S3;If respondent Chief Income Earner;resp_chief;S_18
+2001;s3;If respondent Chief Income Earner;resp_chief;S_18
+2002;s3;If respondent Chief Income Earner;resp_chief;S_18
+2003;s3;If respondent Chief Income Earner;resp_chief;S_18
+2004;s3;If respondent Chief Income Earner;resp_chief;S_18
+2005;s8;If respondent Chief Income Earner;resp_chief;S_18
+2006;s8;If respondent Chief Income Earner;resp_chief;S_18
+2007;s12;If respondent Chief Income Earner;resp_chief;S_18
+2008;s12;If respondent Chief Income Earner;resp_chief;S_18
+2009;s9;If respondent Chief Income Earner;resp_chief;S_18
+2010;S11;If respondent Chief Income Earner;resp_chief;S_18
+2011;S19;If respondent Chief Income Earner;resp_chief;S_18
+2013;S15;If respondent Chief Income Earner;resp_chief;S_18
+2015;S17;If respondent Chief Income Earner;resp_chief;S_18
+2016;S11;If respondent Chief Income Earner;resp_chief;S_18
+2017;S12;If respondent Chief Income Earner;resp_chief;S_18
+2018;S8;Main household income - Head of household;resp_chief;S_18
+2020;S14;If respondent Chief Income Earner;resp_chief;S_18
+2023;S9;Are you the person that makes the largest contribution to your family’s income? Are you head of your household?;resp_chief;S_18
+2024;S9;It is the main family income / Head of the family;resp_chief;S_18
+1995;s17;Respondent Years/Type of education;resp_education;S_19
+1996;s14;Respondent Years/Type of education;resp_education;S_19
+1997;s10;Respondent Years/Type of education;resp_education;S_19
+1998;s11;Respondent Years/Type of education;resp_education;S_19
+2000;S6;Respondent Years/Type of education;resp_education;S_19
+2001;s6;Respondent Years/Type of education;resp_education;S_19
+2002;s6;Respondent Years/Type of education;resp_education;S_19
+2003;s6;Respondent Years/Type of education;resp_education;S_19
+2004;s6;Respondent Years/Type of education;resp_education;S_19
+2005;s11;Respondent Years/Type of education;resp_education;S_19
+2006;s11;Respondent Years/Type of education;resp_education;S_19
+2007;s15;Respondent Years/Type of education;resp_education;S_19
+2008;s15;Respondent Years/Type of education;resp_education;S_19
+2009;s12;Respondent Years/Type of education;resp_education;S_19
+2010;S14;Respondent Years/Type of education;resp_education;S_19
+2011;S21;Respondent Years/Type of education;resp_education;S_19
+2013;S17;Respondent Years/Type of education;resp_education;S_19
+2015;S19;Respondent Years/Type of education;resp_education;S_19
+2016;S13;Respondent Years/Type of education;resp_education;S_19
+2017;S14;Respondent Years/Type of education;resp_education;S_19
+2018;S10;Respondent Years/Type of education;resp_education;S_19
+2020;S16;RespondentÂ´s level of education;resp_education;S_19
+2020;S16;RespondentÂ´s level of education;resp_education;S_19
+2023;S21B;What level of education do you have? What was the last year you completed? What sort of technical school, what sort of institute, etc_?;resp_education;S_19
+2024;S11;Level of education achieved - Interviewee;resp_education;S_19
+1995;s10;Respondent's employment situation;resp_employment;S_20
+1996;s7a;Respondent's employment situation;resp_employment;S_20
+1997;s7a;Respondent's employment situation;resp_employment;S_20
+1998;s7a;Respondent's employment situation;resp_employment;S_20
+2000;S8A;Respondent's employment situation;resp_employment;S_20
+2001;s8a;Respondent's employment situation;resp_employment;S_20
+2002;s8a;Respondent's employment situation;resp_employment;S_20
+2003;s8a;Respondent's employment situation;resp_employment;S_20
+2004;s8a;Respondent's employment situation;resp_employment;S_20
+2005;s13a;Respondent's employment situation;resp_employment;S_20
+2006;s13a;Respondent's employment situation;resp_employment;S_20
+2007;s17a;Respondent's employment situation;resp_employment;S_20
+2008;s17a;Respondent's employment situation;resp_employment;S_20
+2009;s14a;What is current employment situation?;resp_employment;S_20
+2010;S16A;Respondent's employment situation;resp_employment;S_20
+2011;S23A;Respondent's employment situation;resp_employment;S_20
+2013;S19_A;RespondentÂ´s employment situation;resp_employment;S_20
+2015;S21_A;Respondent's employment situation;resp_employment;S_20
+2016;S18A;Current employment situation;resp_employment;S_20
+2017;S18_A;Respondent's employment situation;resp_employment;S_20
+2018;S14A;Respondent's employment situation;resp_employment;S_20
+2020;S24_A;Current employment situation;resp_employment;S_20
+2023;S22_A;What is the employment situation of the head of your household?;resp_employment;S_20
+2024;S18.A;Occupational status;resp_employment;S_20
+1995;s24;Perception of the respondentÂ´s socioeconomic status;resp_economic_perception;S_21
+1996;s20;Perception of the respondentÂ´s socioeconomic status;resp_economic_perception;S_21
+1997;s16;Perception of the respondentÂ´s socioeconomic status;resp_economic_perception;S_21
+1998;s18;Perception of the respondentÂ´s socioeconomic status;resp_economic_perception;S_21
+2000;S16;Perception of the respondentÂ´s socioeconomic status;resp_economic_perception;S_21
+2001;s16a;Perception of the respondentÂ´s socioeconomic status;resp_economic_perception;S_21
+2002;s20;Perception of the respondentÂ´s socioeconomic status;resp_economic_perception;S_21
+2003;s16;Perception of the respondentÂ´s socioeconomic status;resp_economic_perception;S_21
+2004;s18;Perception of the respondentÂ´s socioeconomic status;resp_economic_perception;S_21
+2005;s24;Perception of the respondentÂ´s socioeconomic status;resp_economic_perception;S_21
+2006;s24;Perception of the respondentÂ´s socioeconomic status;resp_economic_perception;S_21
+2007;s28;Perception of the respondentÂ´s socioeconomic status;resp_economic_perception;S_21
+2008;s26;Perception of the respondentÂ´s socioeconomic status;resp_economic_perception;S_21
+2009;s26;Perception of the respondentÂ´s socioeconomic status;resp_economic_perception;S_21
+2010;S28;Perception of the respondentÂ´s socioeconomic status;resp_economic_perception;S_21
+2011;S34;Perception of the respondentÂ´s socioeconomic status;resp_economic_perception;S_21
+2013;S27;Perception of the respondentÂ´s socioeconomic status;resp_economic_perception;S_21
+2015;S29;Perception of the respondentÂ´s socioeconomic status;resp_economic_perception;S_21
+2016;S22;Perception of the respondentÂ´s socioeconomic status;resp_economic_perception;S_21
+2017;S22;Perception of the respondentÂ´s socioeconomic status;resp_economic_perception;S_21
+2018;S26;Perception of the respondentÂ´s socioeconomic status;resp_economic_perception;S_21
+2020;S30;Perception of the respondentÂ´s socioeconomic status;resp_economic_perception;S_21
+2023;S24;Socioeconomic level assessment (carried out by the interviewer);resp_economic_perception;S_21
+2024;S24;Socioeconomic level assessment (carried out by the interviewer);resp_economic_perception;S_21
+1995;p9;Religion;resp_religion;S_22
+1996;p7;Religion;resp_religion;S_22
+1997;sp85;Religion;resp_religion;S_22
+1998;sp80;Religion;resp_religion;S_22
+2000;P76ST;Religion;resp_religion;S_22
+2001;p86st;Religion;resp_religion;S_22
+2002;p65st;Religion;resp_religion;S_22
+2003;p91st;Religion;resp_religion;S_22
+2004;p90st;Religion;resp_religion;S_22
+2005;s2;Religion;resp_religion;S_22
+2006;s2;Religion;resp_religion;S_22
+2007;s4;Religion;resp_religion;S_22
+2008;s5;Religion;resp_religion;S_22
+2009;s7;Religion;resp_religion;S_22
+2010;S9;Religion;resp_religion;S_22
+2011;S18;Religion;resp_religion;S_22
+2013;S14;Religion;resp_religion;S_22
+2015;S16;Religion;resp_religion;S_22
+2016;S8;Religion;resp_religion;S_22
+2017;S9;Religion;resp_religion;S_22
+2018;S5;Religion;resp_religion;S_22
+2020;S10;Religion;resp_religion;S_22
+2023;S1;What is your religion?;resp_religion;S_22
+2024;S1;ReligiÃ³n;resp_religion;S_22
+1995;pais;Country;resp_country;X_23
+1996;pais;Country of interview;resp_country;X_23
+1997;idenpa;Country of interview;resp_country;X_23
+1998;idenpa;Country of interview;resp_country;X_23
+2000;IDENPA;Country of interview;resp_country;X_23
+2001;idenpa;Country of interview;resp_country;X_23
+2002;idenpa;Country of interview;resp_country;X_23
+2003;idenpa;Country of interview;resp_country;X_23
+2004;idenpa;Country of interview;resp_country;X_23
+2005;IDENPA;Country of interview;resp_country;X_23
+2006;idenpa;Country of interview;resp_country;X_23
+2007;idenpa;Country of interview;resp_country;X_23
+2008;idenpa;Country of interview;resp_country;X_23
+2009;idenpa;Country of interview;resp_country;X_23
+2010;IDENPA;Country of interview;resp_country;X_23
+2011;IDENPA;Country of interview;resp_country;X_23
+2013;IDENPA;Country code;resp_country;X_23
+2015;IDENPA;Country code;resp_country;X_23
+2016;IDENPA;Country;resp_country;X_23
+2017;IDENPA;Country;resp_country;X_23
+2018;IDENPA;Country;resp_country;X_23
+2020;IDENPA;Country Identification;resp_country;X_23
+2023;IDENPA;Country Identification;resp_country;X_23
+2024;IDENPA;Country;resp_country;X_23
+1995;numero;Year Research;research_year;X_24
+1996;numero;Year Research;research_year;X_24
+1997;numinves;Year Research;research_year;X_24
+1998;numinves;Year Research;research_year;X_24
+2000;NUMINVES;Year Research;research_year;X_24
+2001;numinves;Year Research;research_year;X_24
+2002;numinves;Year Research;research_year;X_24
+2003;numinves;Year Research;research_year;X_24
+2004;numinves;Year Research;research_year;X_24
+2005;numinves;Year Research;research_year;X_24
+2006;numinves;Year Research;research_year;X_24
+2007;numinves;Year Research;research_year;X_24
+2008;numinves;Year Research;research_year;X_24
+2009;numinves;Year Research;research_year;X_24
+2010;NUMINVES;Year Research;research_year;X_24
+2011;NUMINVES;Year Research;research_year;X_24
+2013;NUMINVES;Study year;research_year;X_24
+2015;NUMINVES;Study year;research_year;X_24
+2016;NUMINVES;Year of survey;research_year;X_24
+2017;NUMINVES;Year of survey;research_year;X_24
+2018;NUMINVES;Year of survey;research_year;X_24
+2020;NUMINVES;Research Number;research_year;X_24
+2023;NUMINVES;Research Number;research_year;X_24
+2024;NUMINVES;Year of survey;research_year;X_24
+1995;region;Region/Geographical Area;research_region;X_25
+1996;region;Region/Geographical Area;research_region;X_25
+1997;reg;Region/Geographical Area;research_region;X_25
+1998;reg;Region/Geographical Area;research_region;X_25
+2000;REG;Region/Geographical Area;research_region;X_25
+2001;reg;Region/Geographical Area;research_region;X_25
+2002;reg;Region/Geographical Area;research_region;X_25
+2003;reg;Region/Geographical Area;research_region;X_25
+2004;reg;Region/Geographical Area;research_region;X_25
+2005;reg;Region/Geographical Area;research_region;X_25
+2006;reg;Region/Geographical Area;research_region;X_25
+2007;reg;Region/Geographical Area;research_region;X_25
+2008;reg;Region/Geographical Area;research_region;X_25
+2009;reg;Region/Geographical Area;research_region;X_25
+2010;REG;Region/Geographical Area;research_region;X_25
+2011;REG;Region/Geographical Area;research_region;X_25
+2013;REG;Region/Geographical Area;research_region;X_25
+2015;REG;Region/Geographical Area;research_region;X_25
+2016;REG;Region;research_region;X_25
+2017;REG;Region;research_region;X_25
+2018;REG;Region;research_region;X_25
+2020;REG;Region/Geographical Area;research_region;X_25
+2023;REG;Region/Province;research_region;X_25
+2024;REG;Region/Province;research_region;X_25
+1996;th;SIZE OF CITY;research_city_size;X_26
+1997;tamciud;Size of town;research_city_size;X_26
+1998;tamciud;Size of town;research_city_size;X_26
+2000;TAMCIUD;Size of town;research_city_size;X_26
+2001;tamciud;Size of town;research_city_size;X_26
+2002;tamciud;Size of town;research_city_size;X_26
+2003;tamciud;Size of town;research_city_size;X_26
+2004;tamciud;Size of town;research_city_size;X_26
+2005;tamciud;Size of town;research_city_size;X_26
+2006;tamciud;Size of town;research_city_size;X_26
+2007;tamciud;Size of town;research_city_size;X_26
+2008;tamciud;Size of town;research_city_size;X_26
+2009;tamciud;Size of town;research_city_size;X_26
+2010;TAMCIUD;Size of town;research_city_size;X_26
+2011;TAMCIUD;Size of town;research_city_size;X_26
+2013;TAMCIUD;Size of town;research_city_size;X_26
+2015;TAMCIUD;Size of town;research_city_size;X_26
+2016;TAMCIUD;Size of town;research_city_size;X_26
+2017;TAMCIUD;Size of town;research_city_size;X_26
+2018;TAMCIUD;Size of town;research_city_size;X_26
+2020;TAMCIUD;Size of habitat;research_city_size;X_26
+2023;TAMCIUD;Size of habitat;research_city_size;X_26
+2024;TAMCIUD;Habitat size;research_city_size;X_26
+1996;ciu;City;research_city;X_27
+1997;ciudad;City;research_city;X_27
+1998;ciudad;City;research_city;X_27
+2000;CIUDAD;City;research_city;X_27
+2001;ciudad;City;research_city;X_27
+2002;ciudad;City;research_city;X_27
+2003;ciudad;City;research_city;X_27
+2004;Ciudad;City;research_city;X_27
+2005;ciudad;City;research_city;X_27
+2006;ciudad;City;research_city;X_27
+2007;ciudad;City;research_city;X_27
+2008;ciudad;City;research_city;X_27
+2009;ciudad;City;research_city;X_27
+2010;CIUDAD;City;research_city;X_27
+2011;CIUDAD;City;research_city;X_27
+2013;CIUDAD;City;research_city;X_27
+2015;CIUDAD;City;research_city;X_27
+2016;CIUDAD;City;research_city;X_27
+2017;CIUDAD;City;research_city;X_27
+2018;CIUDAD;City;research_city;X_27
+2020;CIUDAD;City;research_city;X_27
+2023;CIUDAD;City;research_city;X_27
+2024;CIUDAD;City;research_city;X_27

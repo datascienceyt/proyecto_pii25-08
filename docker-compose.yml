@@ -1,0 +1,244 @@
+services:
+  # ===============================
+  # Contenedor de descarga ENEMDU
+  # ===============================
+  automatic_download:
+    build:
+      context: ./automatization/download_scripts
+      dockerfile: Dockerfile
+    container_name: automatic_download
+    volumes:
+      # ENEMDU
+      - ./data/raw/ENEMDU:/data/raw/ENEMDU:rw
+      - ./data/enemdu_persona/processed:/data/enemdu_persona/processed:rw
+      - ./data/enemdu_persona/unprocessed:/data/enemdu_persona/unprocessed:rw
+      - ./data/enemdu_vivienda/processed:/data/enemdu_vivienda/processed:rw
+      - ./data/enemdu_vivienda/unprocessed:/data/enemdu_vivienda/unprocessed:rw
+      # VDEM
+      - ./data/raw/VDEM:/data/raw/VDEM:rw
+      - ./data/VDEM:/data/VDEM:rw
+      # Latinobarometro
+      - ./data/raw/latinobarometro:/data/raw/latinobarometro:rw
+      - ./data/latinobarometro/processed:/data/latinobarometro/processed:rw
+      - ./data/latinobarometro/normalized_csv:/data/latinobarometro/normalized_csv:rw
+      - ./data/latinobarometro/latinobarometro_glossary_candidates_BM.csv:/data/latinobarometro/latinobarometro_glossary_candidates_BM.csv:rw
+      - ./data/latinobarometro/unprocessed_dta:/data/latinobarometro/unprocessed_dta:rw
+      - ./data/latinobarometro/unprocessed_csv:/data/latinobarometro/unprocessed_csv:rw
+    environment:
+      - TZ
+      - ENEMDU_ROOT
+      - LATINOBAROMETRO_ROOT
+      - VDEM_ROOT
+      - PERSONA_UNPROC
+      - PERSONA_PROCESSED
+      - VIVIENDA_UNPROC
+      - VIVIENDA_PROCESSED
+      - LATINOBAROMETRO_UNPROC_DTA
+      - LATINOBAROMETRO_UNPROC_CSV
+      - LATINOBAROMETRO_NORM_CSV
+      - LATINOBAROMETRO_DICT_CSV
+      - LATINOBAROMETRO_PROCESSED
+      - VDEM_DATA
+    command: [ "bash", "-lc", "./runner.sh" ]
+
+  # ===============================
+  # ClickHouse Server
+  # ===============================
+  clickhouse_server:
+    image: clickhouse/clickhouse-server:latest
+    container_name: clickhouse_server
+    depends_on:
+      automatic_download:
+        condition: service_completed_successfully
+    volumes:
+      # - ./volumes/clickhouse/lib:/var/lib/clickhouse:rw
+      # - ./volumes/clickhouse/log:/var/log/clickhouse:rw
+      # - /volumes/clickhouse/lib:/var/lib/clickhouse:rw
+      # - /volumes/clickhouse/log:/var/log/clickhouse:rw
+      - clickhouse_volume:/var/lib/clickhouse:rw
+      - ./automatization/init-scripts/clickhouse:/docker-entrypoint-initdb.d:ro
+    environment:
+      - TZ
+      - CLICKHOUSE_USER=${CH_USER}
+      - CLICKHOUSE_PASSWORD=${CH_PASSWORD}
+      - CLICKHOUSE_DB=${CH_DATABASE}
+    ports:
+      - "8123:8123"
+      - "9000:9000"
+    healthcheck:
+      test: wget --no-verbose --tries=1 --spider http://localhost:8123/ping || exit 1
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ===============================
+  # ClickHouse Client
+  # ===============================
+  clickhouse_client:
+    image: clickhouse/clickhouse-client:latest
+    container_name: clickhouse_client
+    environment:
+      - TZ
+    depends_on:
+      clickhouse_server:
+        condition: service_healthy
+    entrypoint: >
+      sh -c '
+        until clickhouse-client --host ${CH_HOST} --port ${CH_PORT} --user ${CH_USER} --password ${CH_PASSWORD} --query "SELECT 1" >/dev/null 2>&1;
+        do
+          echo "Esperando a que ClickHouse esté listo...";
+          sleep 2;
+        done;
+        exec clickhouse-client --host ${CH_HOST} --port ${CH_PORT} --user ${CH_USER} --password ${CH_PASSWORD}
+      '
+    stdin_open: true
+    tty: true
+
+  # ===============================
+  # Ingesta de CSVs a la base
+  # ===============================
+  automatic_ingest:
+    build:
+      context: ./automatization/ingest
+      dockerfile: Dockerfile
+    container_name: automatic_ingest
+    depends_on:
+      automatic_download:
+        condition: service_completed_successfully
+      clickhouse_server:
+        condition: service_healthy
+    volumes:
+      # Diccionario
+      - ./data/diccionario:/data/diccionario:rw
+      - ./data/diccionario:/data/diccionario:rw
+      # ENEMDU persona
+      - ./data/enemdu_persona/unprocessed:/data/enemdu_persona/unprocessed:rw
+      - ./data/enemdu_persona/processed:/data/enemdu_persona/processed:rw
+      # ENEMDU vivienda
+      - ./data/enemdu_vivienda/unprocessed:/data/enemdu_vivienda/unprocessed:rw
+      - ./data/enemdu_vivienda/processed:/data/enemdu_vivienda/processed:rw
+      # VDEM
+      - ./data/VDEM:/data/VDEM:rw
+      # Latinobarometro
+      - ./data/latinobarometro/normalized_csv:/data/latinobarometro/normalized_csv:rw
+      - ./data/latinobarometro/processed:/data/latinobarometro/processed:rw
+      # Logs y errores
+      - ./automatization/ingest/logs:/ingest/logs:rw
+      - ./automatization/ingest/errors:/ingest/errors:rw
+    environment:
+      - TZ
+      - CH_HOST
+      - CH_PORT
+      - CH_USER
+      - CH_PASSWORD
+      - CH_DATABASE
+      - CODIGOS_FILE
+      - POVERTY_FILE
+      - SBU_FILE
+      - PERSONA_DIR
+      - PROCESSED_DIR_PERSONA
+      - VIVIENDA_DIR
+      - PROCESSED_DIR_VIVIENDA
+      - LATINOBAROMETRO_NORM_CSV
+      - LATINOBAROMETRO_PROCESSED
+      - VDEM_DATA
+      - LINEAS_POBREZA
+      - GEOJSON_FILE
+      - LOG_DIR
+      - ERR_DIR
+      - STOP_ON_ERROR
+      - USE_SENTINELS
+      - MAX_RETRIES
+      - RETRY_DELAY
+    command: [ "bash", "-lc", "./runner.sh" ]
+
+  # ===============================
+  # Superset para visualización
+  # ===============================
+  superset:
+    build:
+      context: ./automatization/init-scripts/superset
+      dockerfile: Dockerfile
+    container_name: superset
+    restart: always
+    user: "0"
+    environment:
+      - TZ
+      - HOME=/home/superset
+      - SUPERSET_HOME=/home/superset
+      - SUPERSET_LOAD_EXAMPLES=${SUPERSET_LOAD_EXAMPLES:-no}
+      - SUPERSET_SECRET_KEY=${SUPERSET_SECRET_KEY}
+      - MAPBOX_API_KEY=${MAPBOX_API_KEY}
+      - DATABASE_DIALECT=${DATABASE_DIALECT}
+      - CH_HOST=${CH_HOST}
+      - DATABASE_PORT=${DATABASE_PORT}
+      - CH_DATABASE=${CH_DATABASE}
+      - CH_USER=${CH_USER}
+      - CH_PASSWORD=${CH_PASSWORD}
+      - SUPERSET_ADMIN_FIRSTNAME=${SUPERSET_ADMIN_FIRSTNAME}
+      - SUPERSET_ADMIN_LASTNAME=${SUPERSET_ADMIN_LASTNAME}
+      - SUPERSET_ADMIN_EMAIL=${SUPERSET_ADMIN_EMAIL}
+      - SUPERSET_ADMIN_PASSWORD=${SUPERSET_ADMIN_PASSWORD}
+    ports:
+      - "8088:8088"
+    depends_on:
+      clickhouse_server:
+        condition: service_healthy
+    volumes:
+      - ./volumes/superset/home:/home/superset:rw
+      - ./automatization/init-scripts/superset:/app/superset-init:ro
+      - ./automatization/init-scripts/superset/superset_config.py:/app/pythonpath/superset_config.py:ro
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8088/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+# ===============================
+# Node/Express (gateway)
+# ===============================
+  gateway:
+    build:
+      context: ./web_app/backend
+      dockerfile: Dockerfile
+    container_name: gateway
+    env_file:
+      - ./.env
+    environment:
+      - PORT=8080
+      - SUPERSET_URL
+      - SUPERSET_API
+      - SUPERSET_USER
+      - SUPERSET_PASS
+      - ALLOWED_DASHBOARDS
+      - NO_PROXY=localhost,127.0.0.1,::1,superset
+      - no_proxy=localhost,127.0.0.1,::1,superset
+    depends_on:
+      superset:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+# ===============================
+# React
+# ===============================
+  react_app:
+    build:
+      context: ./web_app/frontend
+      dockerfile: Dockerfile
+    container_name: react_app
+    env_file:
+      - ./.env
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - SUPERSET_API_FRONT
+      - ALLOWED_DASHBOARDS
+      - GATEWAY
+    ports:
+      - "3000:3000"   
+    stdin_open: true
+    tty: true
+# ===============================
+# Volumes
+# ===============================
+volumes:
+  clickhouse_volume:
+  # superset_volume:

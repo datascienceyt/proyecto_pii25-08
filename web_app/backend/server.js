@@ -1,0 +1,107 @@
+// server.js (ESM)
+// import "dotenv/config";
+import express from "express";
+import cors from "cors";
+import axios from "axios";
+import jwt from "jsonwebtoken";
+
+const app = express();
+app.use(express.json());
+app.use(cors());
+
+// ---------- ENV ----------
+// const PORT = process.env.PORT || 8080;
+// const SUPERSET_URL = process.env.SUPERSET_URL || "http://superset:8088";
+// const SUP_USER = process.env.SUPERSET_USER || "admin";
+// const SUP_PASS = process.env.SUPERSET_PASS || "admin";
+const PORT = 8080;
+const SUPERSET_URL = "http://superset:8088";
+const SUP_USER = "admin";
+const SUP_PASS = "admin";
+
+// (opcional) whitelist de dashboards permitidos (ids separados por coma)
+const ALLOWED_RAW = "60141dee-b2b0-44e6-b9cd-9f4d37bd4164,04a0ed97-8f80-427c-9a99-ee35d9711c57,2e8e24c5-148e-46dc-8dec-2c3046a5a81e,01a76746-6cb1-4f80-ada7-0960d03eefc6";
+const ALLOWED_DASHBOARDS = new Set(
+  ALLOWED_RAW.split(",").map((s) => s.trim()).filter(Boolean)
+);
+
+// ---------- LOGIN Y TOKEN CACHÉ ----------
+let cachedAccessToken = null;
+let cachedAccessExp = 0;
+
+async function getSupersetAccessToken() {
+  const now = Math.floor(Date.now() / 1000);
+  if (cachedAccessToken && cachedAccessExp - 60 > now) {
+    return cachedAccessToken;
+  }
+
+  const loginUrl = `${SUPERSET_URL}/api/v1/security/login`;
+  const { data } = await axios.post(loginUrl, {
+    username: SUP_USER,
+    password: SUP_PASS,
+    provider: "db",
+    refresh: true,
+  });
+
+  const token = data?.access_token;
+  if (!token) throw new Error("No se obtuvo access_token de Superset");
+
+  const decoded = jwt.decode(token);
+  cachedAccessToken = token;
+  cachedAccessExp = decoded?.exp || (now + 300);
+  return token;
+}
+
+// ---------- API: guest token ----------
+app.post("/api/superset/guest-token", async (req, res) => {
+  try {
+    const { dashboardId } = req.body || {};
+    if (!dashboardId) {
+      return res.status(400).json({ error: "Falta 'dashboardId' en el body" });
+    }
+
+    if (ALLOWED_DASHBOARDS.size && !ALLOWED_DASHBOARDS.has(String(dashboardId))) {
+      return res.status(403).json({
+        error: "Dashboard no permitido por ALLOWED_DASHBOARDS",
+      });
+    }
+
+    const accessToken = await getSupersetAccessToken();
+
+    const guestUrl = `${SUPERSET_URL}/api/v1/security/guest_token/`;
+    const payload = {
+      resources: [{ type: "dashboard", id: String(dashboardId) }],
+      rls: [],
+      user: { username: "embedded-viewer" },
+    };
+
+    const { data } = await axios.post(guestUrl, payload, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!data?.token) {
+      return res.status(502).json({ error: "Superset no devolvió 'token'" });
+    }
+
+    res.json({ token: data.token });
+  } catch (err) {
+    console.error(err?.response?.data || err.message);
+    const status = err?.response?.status || 500;
+    res.status(status).json({
+      error:
+        err?.response?.data?.message ||
+        err?.message ||
+        "Error generando guest token",
+    });
+  }
+});
+
+// ---------- HEALTH ----------
+app.get("/health", (_req, res) => res.json({ ok: true }));
+
+app.listen(PORT, () => {
+  console.log(`Gateway listening on http://localhost:${PORT}`);
+});
