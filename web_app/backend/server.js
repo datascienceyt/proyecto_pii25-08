@@ -7,7 +7,19 @@ import jwt from "jsonwebtoken";
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+// app.use(cors());
+
+app.use(
+  cors({
+    origin: "http://localhost:3000", // puerto del frontend
+    methods: ["GET", "POST", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
+
+// (Opcional pero a veces útil)
+app.options("*", cors());
+
 
 // ---------- ENV ----------
 const PORT = process.env.PORT || 8080;
