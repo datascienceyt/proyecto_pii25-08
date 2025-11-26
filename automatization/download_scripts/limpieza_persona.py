@@ -75,27 +75,38 @@ def extraer_zip_recursivo(zip_path: Path, temp_dir: Path):
 
 # --- Procesamiento principal ---
 for year_dir in sorted(BASE_DIR.iterdir()):
-    if not year_dir.is_dir(): continue
+    if not year_dir.is_dir():
+        continue
+
+    # Accept only 4-digit year directories, e.g. "2018", "2025"
+    if not (year_dir.name.isdigit() and len(year_dir.name) == 4):
+        print(f"⚠️ Skipping non-year directory: {year_dir.name}")
+        continue
+
     year = int(year_dir.name)
 
     for period_dir in sorted(year_dir.iterdir()):
-        if not period_dir.is_dir(): continue
+        if not period_dir.is_dir():
+            continue
         period = period_dir.name
         print(f"\n📂 Revisando {year}/{period}")
 
-        # 1) CSV sueltos en cualquier nivel
+        # 1) CSV files in any level
         for csv_file in period_dir.rglob("*.csv"):
             if match_csv(csv_file.name, year):
                 copiar_csv(csv_file, year_dir.name, period)
 
-        zip_files = sorted(period_dir.rglob("*.zip"), key=lambda p: (es_recalculado(p), p.name.lower()))
-        # 2) ZIPs en cualquier nivel
+        zip_files = sorted(
+            period_dir.rglob("*.zip"),
+            key=lambda p: (es_recalculado(p), p.name.lower())
+        )
+        # 2) ZIP files in any level
         for zip_file in zip_files:
             print(f"📦 Procesando ZIP → {zip_file.relative_to(period_dir)}")
             with tempfile.TemporaryDirectory() as tmp:
                 tmp_path = Path(tmp)
                 extraer_zip_recursivo(zip_file, tmp_path)
-                # copiar CSV extraídos
+                # copy extracted CSV files
                 for csv_ex in tmp_path.rglob("*.csv"):
                     if match_csv(csv_ex.name, year):
                         copiar_csv(csv_ex, year_dir.name, period)

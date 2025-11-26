@@ -208,9 +208,6 @@ services:
       - SUPERSET_API
       - SUPERSET_USER
       - SUPERSET_PASS
-      - ALLOWED_DASHBOARDS
-      - NO_PROXY=localhost,127.0.0.1,::1,superset
-      - no_proxy=localhost,127.0.0.1,::1,superset
     depends_on:
       superset:
         condition: service_healthy

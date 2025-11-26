@@ -18,19 +18,19 @@ const TopNavLink = ({ to, children }) => {
 };
 
 // Bottom bar links (Indicadores, Validación)
-const SecondaryNavLink = ({ to, children }) => {
-  const location = useLocation();
-  const active = location.pathname === to;
-  const className =
-    "secondary-nav-link" +
-    (active ? " secondary-nav-link--active" : "");
+// const SecondaryNavLink = ({ to, children }) => {
+//   const location = useLocation();
+//   const active = location.pathname === to;
+//   const className =
+//     "secondary-nav-link" +
+//     (active ? " secondary-nav-link--active" : "");
 
-  return (
-    <Link to={to} className={className}>
-      {children}
-    </Link>
-  );
-};
+//   return (
+//     <Link to={to} className={className}>
+//       {children}
+//     </Link>
+//   );
+// };
 
 const Header = () => {
   return (

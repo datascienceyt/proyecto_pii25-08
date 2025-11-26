@@ -1,5 +1,5 @@
 // server.js (ESM)
-// import "dotenv/config";
+import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import axios from "axios";
@@ -10,20 +10,29 @@ app.use(express.json());
 app.use(cors());
 
 // ---------- ENV ----------
-// const PORT = process.env.PORT || 8080;
-// const SUPERSET_URL = process.env.SUPERSET_URL || "http://superset:8088";
-// const SUP_USER = process.env.SUPERSET_USER || "admin";
-// const SUP_PASS = process.env.SUPERSET_PASS || "admin";
-const PORT = 8080;
-const SUPERSET_URL = "http://superset:8088";
-const SUP_USER = "admin";
-const SUP_PASS = "admin";
+const PORT = process.env.PORT || 8080;
+const SUPERSET_URL = process.env.SUPERSET_URL || "http://superset:8088";
+const SUP_USER = process.env.SUPERSET_USER;
+const SUP_PASS = process.env.SUPERSET_PASS;
 
-// (opcional) whitelist de dashboards permitidos (ids separados por coma)
-const ALLOWED_RAW = "60141dee-b2b0-44e6-b9cd-9f4d37bd4164,04a0ed97-8f80-427c-9a99-ee35d9711c57,2e8e24c5-148e-46dc-8dec-2c3046a5a81e,01a76746-6cb1-4f80-ada7-0960d03eefc6";
+if (!SUP_USER || !SUP_PASS) {
+  throw new Error("Faltan SUPERSET_USER o SUPERSET_PASS en las variables de entorno");
+}
+
+const ALLOWED_RAW = process.env.ALLOWED_DASHBOARDS || "";
 const ALLOWED_DASHBOARDS = new Set(
   ALLOWED_RAW.split(",").map((s) => s.trim()).filter(Boolean)
 );
+
+// Desactivar en producción
+// console.log("Gateway config:", {
+//   PORT,
+//   SUPERSET_URL,
+//   SUP_USER,
+//   // OJO: nunca loguees la password en producción
+//   hasSupPass: Boolean(SUP_PASS),
+//   ALLOWED_DASHBOARDS,
+// });
 
 // ---------- LOGIN Y TOKEN CACHÉ ----------
 let cachedAccessToken = null;
@@ -103,5 +112,5 @@ app.post("/api/superset/guest-token", async (req, res) => {
 app.get("/health", (_req, res) => res.json({ ok: true }));
 
 app.listen(PORT, () => {
-  console.log(`Gateway listening on http://localhost:${PORT}`);
+  console.log(`-> Gateway listening on http://localhost:${PORT}`);
 });
