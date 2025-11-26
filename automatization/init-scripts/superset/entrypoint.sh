@@ -22,11 +22,11 @@ case "$1" in
     # Crear admin sólo si no existe
     if ! as_superset "$SS fab list-users" | grep -qi 'admin@'; then
       as_superset "$SS fab create-admin \
-        --username admin \
-        --firstname ${SUPERSET_ADMIN_FIRSTNAME:-Admin} \
-        --lastname ${SUPERSET_ADMIN_LASTNAME:-User} \
-        --email ${SUPERSET_ADMIN_EMAIL:-admin@example.com} \
-        --password ${SUPERSET_ADMIN_PASSWORD:-admin}"
+        --username ${SUPERSET_USER} \
+        --firstname ${SUPERSET_ADMIN_FIRSTNAME} \
+        --lastname ${SUPERSET_ADMIN_LASTNAME} \
+        --email ${SUPERSET_ADMIN_EMAIL} \
+        --password ${SUPERSET_PASS}"
     fi
 
     # Script de inicialización propio (si existe)
