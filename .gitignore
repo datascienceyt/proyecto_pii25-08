@@ -23,7 +23,7 @@ web_app/frontend/app/node_modules
 volumes/*
 
 # ENV
-.env
+# .env
 
 # Extra
 .vscode
