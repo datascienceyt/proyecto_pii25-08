@@ -2,7 +2,6 @@
 import React, { useEffect, useRef } from "react";
 import { embedDashboard } from "@superset-ui/embedded-sdk";
 
-// Ajusta estas URLs a tu entorno
 const SUPERSET_DOMAIN = "http://localhost:8088";
 const BACKEND_GATEWAY = "http://localhost:8080";
 
@@ -10,13 +9,16 @@ const SupersetDashboard = ({ dashboardId }) => {
   const containerRef = useRef(null);
 
   useEffect(() => {
+    // Capture the mount element once for this effect run
+    const mountEl = containerRef.current;
+
     if (!dashboardId) {
-      if (containerRef.current) {
-        containerRef.current.innerHTML = "";
+      if (mountEl) {
+        mountEl.innerHTML = "";
       }
       return;
     }
-    if (!containerRef.current) return;
+    if (!mountEl) return;
 
     let destroyed = false;
     let api = null;
@@ -34,7 +36,7 @@ const SupersetDashboard = ({ dashboardId }) => {
 
       const data = await res.json();
       if (!data?.token || typeof data.token !== "string") {
-        throw new Error("El backend no devolvió un token válido");
+        throw new Error("Backend did not return a valid token");
       }
       return data.token;
     }
@@ -44,16 +46,16 @@ const SupersetDashboard = ({ dashboardId }) => {
         api = await embedDashboard({
           id: String(dashboardId),
           supersetDomain: SUPERSET_DOMAIN,
-          mountPoint: containerRef.current,
-          // el SDK llamará a esta función cada vez que necesite (incluida la renovación)
+          mountPoint: mountEl,
+          // SDK will call this whenever it needs a token (including renewals)
           fetchGuestToken,
           dashboardUiConfig: {
             hideTitle: true,
           },
         });
 
-        // forzar que el iframe llene el contenedor
-        const iframe = containerRef.current.querySelector("iframe");
+        // Force iframe to fill the container
+        const iframe = mountEl.querySelector("iframe");
         if (iframe) {
           iframe.style.width = "100%";
           iframe.style.height = "100%";
@@ -62,8 +64,8 @@ const SupersetDashboard = ({ dashboardId }) => {
         }
       } catch (e) {
         console.error(e);
-        if (!destroyed && containerRef.current) {
-          containerRef.current.innerHTML = `<div style="padding:16px;color:#b00">${e.message}</div>`;
+        if (!destroyed && mountEl) {
+          mountEl.innerHTML = `<div style="padding:16px;color:#b00">${e.message}</div>`;
         }
       }
     }
@@ -73,10 +75,10 @@ const SupersetDashboard = ({ dashboardId }) => {
     return () => {
       destroyed = true;
       if (api && typeof api.destroy === "function") {
-        api.destroy(); // detenemos el embed, ya no debe pedir tokens
+        api.destroy(); // stop the embed, it should not request tokens anymore
       }
-      if (containerRef.current) {
-        containerRef.current.innerHTML = "";
+      if (mountEl) {
+        mountEl.innerHTML = "";
       }
     };
   }, [dashboardId]);

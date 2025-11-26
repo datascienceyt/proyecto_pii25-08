@@ -1,26 +1,26 @@
 // src/pages/BasesUsadasPage.jsx
 import React from "react";
 
-const basesDocs = [
-  {
-    base: "V-Dem",
-    title: "Sitio Oficial - V-Dem",
-    description: "Contiene información sobre definiciones, escalas y fuentes.",
-    href: "https://www.v-dem.net/",
-  },
-  {
-    base: "Latinobarómetro",
-    title: "Sitio Oficial - Latinobarómetro",
-    description: "Contiene información sobre diseño muestral, ponderadores y series históricas.",
-    href: "https://www.latinobarometro.org/#",
-  },
-  {
-    base: "ENEMDU",
-    title: "Sitio Oficial - ENEMDU",
-    description: "Contiene información sobre el diseño de la encuesta, ponderación y manual de variables.",
-    href: "https://www.ecuadorencifras.gob.ec/enemdu-anual/",
-  },
-];
+// const basesDocs = [
+//   {
+//     base: "V-Dem",
+//     title: "Sitio Oficial - V-Dem",
+//     description: "Contiene información sobre definiciones, escalas y fuentes.",
+//     href: "https://www.v-dem.net/",
+//   },
+//   {
+//     base: "Latinobarómetro",
+//     title: "Sitio Oficial - Latinobarómetro",
+//     description: "Contiene información sobre diseño muestral, ponderadores y series históricas.",
+//     href: "https://www.latinobarometro.org/#",
+//   },
+//   {
+//     base: "ENEMDU",
+//     title: "Sitio Oficial - ENEMDU",
+//     description: "Contiene información sobre el diseño de la encuesta, ponderación y manual de variables.",
+//     href: "https://www.ecuadorencifras.gob.ec/enemdu-anual/",
+//   },
+// ];
 
 const BasesUsadasPage = () => {
   return (
