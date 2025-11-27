@@ -1,6 +1,7 @@
 // src/pages/MethodologyPage.jsx
 import React from "react";
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
+import { ReactComponent as MethodologyFlowDiagram } from "../assets/methodology-flow.svg";
 
 const methodologyDocs = [
   // {
@@ -105,42 +106,17 @@ const MethodologyPage = () => {
             Flujo general de cálculo de indicadores
           </h2>
           <p className="project-section-text">
-            El proceso metodológico se puede resumir en las siguientes etapas.
-            Cada una de ellas se detalla en los documentos técnicos disponibles
-            para descarga.
+            El proceso metodológico se organiza en una secuencia de pasos, desde la
+            selección de variables hasta la validación con los resultados oficiales.
           </p>
         </div>
 
-        <div className="methodology-steps">
-          <article className="methodology-step">
-            <span className="methodology-step-number">1</span>
-            <h3>Selección y depuración de variables</h3>
-            <p>
-              Selección de variables relevantes en V-Dem, Latinobarómetro y
-              ENEMDU. Se aplican filtros de calidad, control de valores atípicos
-              y unificación de codificaciones para países y años.
-            </p>
-          </article>
-          <article className="methodology-step">
-            <span className="methodology-step-number">2</span>
-            <h3>Normalización y construcción de indicadores</h3>
-            <p>
-              Transformación de variables originales a escalas comparables,
-              aplicación de ponderaciones (cuando corresponde) y cálculo de
-              índices sintéticos a nivel de país y año.
-            </p>
-          </article>
-          <article className="methodology-step">
-            <span className="methodology-step-number">3</span>
-            <h3>Validación y consistencia temporal</h3>
-            <p>
-              Verificación de la estabilidad de las series, comparación con
-              fuentes oficiales y ajuste de posibles rupturas de serie o cambios
-              metodológicos en las encuestas de origen.
-            </p>
-          </article>
+        <div className="methodology-diagram-wrapper">
+          <MethodologyFlowDiagram className="methodology-diagram" />
         </div>
       </section>
+
+
 
       {/* METODOLOGÍA POR BASE DE DATOS */}
       <section className="methodology-section">

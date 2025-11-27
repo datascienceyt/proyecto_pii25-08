@@ -1,6 +1,6 @@
 # Arquitectura del Sistema
 
-Este documento describe la arquitectura lógica del proyecto **Indicadores YACHAY-ESPE**, detallando los contenedores, la red interna de Docker, los puertos expuestos y la interacción entre los componentes.
+Este documento describe la arquitectura lógica del proyecto **Indicadores**, detallando los contenedores, la red interna de Docker, los puertos expuestos y la interacción entre los componentes.
 
 ---
 

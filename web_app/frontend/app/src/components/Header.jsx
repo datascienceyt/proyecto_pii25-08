@@ -3,6 +3,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/yachay_white.png";
 
+
 // Top bar links (Sobre, Metodología, Bases, Publicaciones)
 const TopNavLink = ({ to, children }) => {
   const location = useLocation();
@@ -37,13 +38,16 @@ const Header = () => {
     <header className="espe-header">
       {/* BARRA SUPERIOR AZUL: solo menú a la derecha */}
       <div className="espe-topbar">
-        <div className="espe-secondbar-left">
-          <img
-            src={logo}
-            alt="Universidad Yachay Tech"
-            className="espe-secondbar-logo"
-          />
+        <div className="espe-topbar-left">
+          <Link to="/">
+            <img
+              src={logo}
+              alt="Universidad Yachay Tech"
+              className="espe-secondbar-logo"
+            />
+          </Link>
         </div>
+
         <div className="espe-topbar-left" />
         <nav className="espe-topbar-nav">
           <TopNavLink to="/sobre-el-proyecto">Sobre el Proyecto</TopNavLink>

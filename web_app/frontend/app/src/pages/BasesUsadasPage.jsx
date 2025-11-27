@@ -43,42 +43,64 @@ const BasesUsadasPage = () => {
 
           <div className="bases-hero-highlights">
             <article className="bases-hero-highlight">
-              <div className="bases-hero-highlight-icon bases-hero-highlight-icon--vdem">
-                <span role="img" aria-label="Instituciones">
-                  🏛️
-                </span>
-              </div>
-              <div className="bases-hero-highlight-text">
-                <h4>V-Dem</h4>
-                <p>Indicadores institucionales de calidad democrática.</p>
-              </div>
+              <a
+                href="https://www.v-dem.net/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bases-hero-highlight-link"
+              >
+                <div className="bases-hero-highlight-icon bases-hero-highlight-icon--vdem">
+                  <span role="img" aria-label="Instituciones">
+                    🏛️
+                  </span>
+                </div>
+                <div className="bases-hero-highlight-text">
+                  <h4>V-Dem</h4>
+                  <p>Indicadores institucionales de calidad democrática.</p>
+                </div>
+              </a>
             </article>
 
             <article className="bases-hero-highlight">
-              <div className="bases-hero-highlight-icon bases-hero-highlight-icon--latino">
-                <span role="img" aria-label="Ciudadanía">
-                  🧑‍🤝‍🧑
-                </span>
-              </div>
-              <div className="bases-hero-highlight-text">
-                <h4>Latinobarómetro</h4>
-                <p>Opinión pública y percepción ciudadana sobre la democracia.</p>
-              </div>
+              <a
+                href="https://www.latinobarometro.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bases-hero-highlight-link"
+              >
+                <div className="bases-hero-highlight-icon bases-hero-highlight-icon--latino">
+                  <span role="img" aria-label="Ciudadanía">
+                    🧑‍🤝‍🧑
+                  </span>
+                </div>
+                <div className="bases-hero-highlight-text">
+                  <h4>Latinobarómetro</h4>
+                  <p>Opinión pública y percepción ciudadana sobre la democracia.</p>
+                </div>
+              </a>
             </article>
 
             <article className="bases-hero-highlight">
-              <div className="bases-hero-highlight-icon bases-hero-highlight-icon--enemdu">
-                <span role="img" aria-label="Economía">
-                  💼
-                </span>
-              </div>
-              <div className="bases-hero-highlight-text">
-                <h4>ENEMDU (Ecuador)</h4>
-                <p>Condiciones socioeconómicas y mercado laboral en Ecuador.</p>
-              </div>
+              <a
+                href="https://www.ecuadorencifras.gob.ec/enemdu-anual/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bases-hero-highlight-link"
+              >
+                <div className="bases-hero-highlight-icon bases-hero-highlight-icon--enemdu">
+                  <span role="img" aria-label="Economía">
+                    💼
+                  </span>
+                </div>
+                <div className="bases-hero-highlight-text">
+                  <h4>ENEMDU (Ecuador)</h4>
+                  <p>Condiciones socioeconómicas y mercado laboral en Ecuador.</p>
+                </div>
+              </a>
             </article>
           </div>
         </div>
+
       </section>
 
       {/* CARDS PRINCIPALES */}
