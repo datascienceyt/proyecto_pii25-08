@@ -239,6 +239,127 @@ body,
   margin-top: 0;
 }
 
+/* === Home / Landing === */
+
+.home-page {
+  min-height: calc(100vh - 64px); /* ajusta si tu header tiene otra altura */
+}
+
+.home-hero {
+  position: relative;
+  min-height: calc(100vh - 64px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.home-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      circle at 20% 20%,
+      rgba(37, 99, 235, 0.25),
+      transparent 55%
+    ),
+    linear-gradient(
+      to bottom right,
+      rgba(15, 23, 42, 0.9),
+      rgba(15, 23, 42, 0.75)
+    );
+  mix-blend-mode: multiply;
+}
+
+.home-hero-content {
+  position: relative;
+  max-width: 900px;
+  text-align: center;
+  color: #f9fafb;
+  z-index: 1;
+}
+
+.home-tagline {
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #dbeafe;
+}
+
+.home-title {
+  font-size: 30px;
+  line-height: 1.15;
+  margin: 0 0 16px;
+  font-weight: 700;
+}
+
+.home-subtitle {
+  max-width: 720px;
+  margin: 0 auto 26px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #e5e7eb;
+}
+
+.home-cta-group {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.home-cta {
+  min-width: 180px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid transparent;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.18s ease-out;
+}
+
+.home-cta-primary {
+  background: #f9fafb;
+  color: #0b3a5c;
+  border-color: transparent;
+}
+
+.home-cta-primary:hover {
+  background: #e5e7eb;
+}
+
+.home-cta-secondary {
+  background: transparent;
+  color: #e5e7eb;
+  border-color: rgba(209, 213, 219, 0.7);
+}
+
+.home-cta-secondary:hover {
+  background: rgba(15, 23, 42, 0.6);
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .home-title {
+    font-size: 22px;
+  }
+
+  .home-subtitle {
+    font-size: 13px;
+  }
+
+  .home-hero {
+    padding: 32px 18px;
+  }
+}
+
 /* ==== SECCIÓN INDICADORES ==== */
 
 .indicators-layout {
@@ -853,6 +974,166 @@ body,
   color: #2563eb;
 }
 
+/* === Diagrama de flujo de metodología (con íconos) === */
+
+.methodology-section-alt {
+  background: #f3f6ff;
+  border-radius: 24px;
+  padding: 22px 26px 26px;
+}
+
+.methodology-flow {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 18px;
+  padding: 12px 10px;
+}
+
+/* "Pista" de flujo de fondo */
+@media (min-width: 900px) {
+  .methodology-flow::before {
+    content: "";
+    position: absolute;
+    inset: 40px 12px auto 12px;
+    height: 4px;
+    background: linear-gradient(
+      to right,
+      rgba(37, 99, 235, 0.15),
+      rgba(59, 130, 246, 0.4),
+      rgba(37, 99, 235, 0.15)
+    );
+    border-radius: 999px;
+    z-index: 0;
+  }
+}
+
+.methodology-flow-step {
+  position: relative;
+  flex: 1 1 210px;
+  min-width: 210px;
+  max-width: 260px;
+  padding: 14px 16px 14px 14px;
+  border-radius: 18px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  z-index: 1;
+}
+
+/* Oculta la pista en móvil y apila los pasos */
+@media (max-width: 899px) {
+  .methodology-flow {
+    flex-direction: column;
+  }
+
+  .methodology-flow::before {
+    display: none;
+  }
+
+  .methodology-flow-step {
+    max-width: 100%;
+  }
+}
+
+/* Badge: icono grande + número superpuesto */
+.methodology-flow-badge {
+  position: relative;
+  width: 50px;
+  height: 50px;
+}
+
+.methodology-flow-icon {
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 20%, #eff6ff, #2563eb);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.35);
+}
+
+.methodology-flow-node {
+  position: absolute;
+  right: -4px;
+  bottom: -4px;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background: #f9fafb;
+  border: 2px solid #1d4ed8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: #1d4ed8;
+}
+
+.methodology-flow-step-number {
+  transform: translateY(0.5px);
+}
+
+/* Conectores entre tarjetas (flechas suaves) */
+@media (min-width: 900px) {
+  .methodology-flow-step::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -18px;
+    width: 26px;
+    height: 2px;
+    background: linear-gradient(
+      to right,
+      rgba(37, 99, 235, 0.0),
+      rgba(37, 99, 235, 0.55)
+    );
+    transform: translateY(-50%);
+    border-radius: 999px;
+  }
+
+  .methodology-flow-step:last-child::after {
+    display: none;
+  }
+}
+
+.methodology-flow-content h3 {
+  margin: 0 0 4px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.methodology-flow-content p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.45;
+  color: #4b5563;
+}
+
+.methodology-diagram-wrapper {
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.methodology-diagram {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  /* opcional: un poquito de sombra y borde redondeado si el SVG no los trae */
+  /* border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12); */
+}
+
+
 /* Cards por base de datos */
 
 .methodology-grid {
@@ -1009,6 +1290,19 @@ body,
 .bases-hero-highlight-icon span {
   transform: translateY(1px);
 }
+
+.bases-hero-highlight-link {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+.bases-hero-highlight-link:hover {
+  text-decoration: none;
+}
+
 
 /* Colores distintos para cada base (subtle border/glow) */
 .bases-hero-highlight-icon--vdem {
@@ -1604,5 +1898,179 @@ body,
 @media (max-width: 900px) {
   .validation-details-grid {
     grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Sección ancha específica para la tabla de indicadores */
+.bases-section-wide {
+  position: relative;
+}
+
+/* El wrapper se hace casi de ancho completo de la ventana y centrado */
+.bases-section-wide .bases-indicators-table-wrapper {
+  margin-top: 1.5rem;
+  padding: 1.5rem 3rem;
+  border-radius: 1rem;
+  background: #eef3ff;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+
+  width: calc(100vw - 4rem);   /* ocupa casi todo el viewport */
+  margin-left: 50%;
+  transform: translateX(-50%); /* centra el bloque */
+  overflow-x: auto;            /* por si la pantalla es muy pequeña */
+}
+
+/* La tabla sigue usando todo el ancho disponible del wrapper */
+.bases-indicators-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 0.85rem;
+}
+
+/* Ajuste para móviles: volvemos a ancho normal dentro del layout */
+@media (max-width: 960px) {
+  .bases-section-wide .bases-indicators-table-wrapper {
+    width: 100%;
+    margin-left: 0;
+    transform: none;
+    padding: 1rem;
+  }
+}
+
+.bases-indicators-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;     /* fuerza a que las columnas se ajusten */
+  font-size: 0.85rem;
+}
+
+/* Wrapper más ancho que el texto para que haya más espacio horizontal */
+.bases-indicators-table-wrapper {
+  margin-top: 1.5rem;
+  padding: 1.25rem 2rem;
+  border-radius: 1rem;
+  background: #eef3ff;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+  width: calc(100% + 4rem);    /* ensancha la tarjeta */
+  margin-left: -2rem;          /* ajustes: si se ve muy ancho, reduce este valor */
+  margin-right: -2rem;
+  overflow-x: auto;            /* por si la pantalla es muy pequeña */
+}
+
+/* Tabla principal */
+.bases-indicators-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;         /* reparte el ancho según colgroup */
+  font-size: 0.85rem;
+}
+
+/* Distribución de columnas: más espacio a fórmula */
+.col-source {
+  width: 10%;
+}
+.col-indicator {
+  width: 18%;
+}
+.col-formula {
+  width: 30%;                  /* aquí gana bastante espacio horizontal */
+}
+.col-small {
+  width: auto;
+}
+
+/* Encabezados en dos filas */
+.bases-indicators-table thead th {
+  background: #e0e7ff;
+  padding: 0.6rem 0.75rem;
+  font-weight: 600;
+  border-bottom: 2px solid #c7d2fe;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Primeras tres columnas alineadas a la izquierda */
+.bases-indicators-table thead th:nth-child(-n + 3) {
+  text-align: left;
+}
+
+/* Celdas normales */
+.bases-indicators-table tbody td {
+  padding: 0.55rem 0.75rem;
+  border-bottom: 1px solid #e5e7eb;
+  vertical-align: middle;      /* centra verticalmente, incluidas fórmulas */
+}
+
+/* Zebra rows */
+.bases-indicators-table tbody tr:nth-child(odd) {
+  background: rgba(255, 255, 255, 0.95);
+}
+.bases-indicators-table tbody tr:nth-child(even) {
+  background: #f5f7ff;
+}
+
+/* Celda de fórmula tipo "pill" con fracciones apiladas */
+.bases-indicators-formula {
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.85rem;
+  background: #0f172a;
+  color: #e5e7eb;
+  border-radius: 999px;
+  padding: 0.35rem 1.1rem;
+  display: inline-flex;
+  align-items: center;         /* centra verticalmente la fracción */
+  justify-content: center;
+  white-space: normal;
+}
+
+/* Fracción apilada */
+.bases-fraction {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 0.25rem;
+  line-height: 1.1;
+}
+.bases-fraction-num {
+  border-bottom: 1px solid currentColor;
+  padding: 0 0.25rem 0.05rem;
+}
+.bases-fraction-den {
+  padding: 0.05rem 0.25rem 0;
+  font-size: 0.9em;
+}
+
+/* Columnas de checks centradas */
+.bases-indicators-table th:nth-child(n + 4),
+.bases-indicators-table td:nth-child(n + 4):nth-child(-n + 11) {
+  text-align: center;
+}
+
+/* Colores por fuente (incluyendo Latinobarómetro) */
+.bases-indicators-row--enemduecuador td:first-child {
+  font-weight: 600;
+  color: #2563eb; /* azul */
+}
+.bases-indicators-row--latinobarometro td:first-child {
+  font-weight: 600;
+  color: #16a34a; /* verde */
+}
+.bases-indicators-row--vdem td:first-child {
+  font-weight: 600;
+  color: #dc2626; /* rojo */
+}
+
+/* Responsive: si la pantalla es estrecha, relaja un poco */
+@media (max-width: 960px) {
+  .bases-indicators-table-wrapper {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .bases-indicators-formula {
+    align-items: flex-start;
   }
 }
