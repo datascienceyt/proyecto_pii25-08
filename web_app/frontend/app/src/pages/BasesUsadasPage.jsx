@@ -1,763 +1,307 @@
 // src/pages/IndicatorsPage.jsx
 import React from "react";
 
-const Frac = ({ num, den }) => (
-  <span className="bases-fraction">
-    <span className="bases-fraction-num">{num}</span>
-    <span className="bases-fraction-den">{den}</span>
-  </span>
-);
+// ------------------------
+// ENEMDU
+// ------------------------
+
+const enemduIndicators = [
+  {
+    name: "Tasa de participación global",
+    survey: "Persona",
+    description: "Es el porcentaje que resulta del cociente entre la Población Económicamente Activa (PEA) y la Población en Edad de Trabajar (PET). Esta tasa resulta más adecuada para medir la participación ya que aísla fenómenos de tipo demográfico.",
+  },
+  {
+    name: "Tasa de participación bruta",
+    survey: "Persona",
+    description: "Es el porcentaje que resulta del cociente entre la Población Económicamente Activa (PEA) y la Población Total (PT).",
+  },
+  {
+    name: "Tasa de desempleo",
+    survey: "Persona",
+    description: "Es el porcentaje de personas de 15 años y más en condición de desempleo, respecto a la PEA. Resulta del cociente entre el total de la población de 15 años y más en condición de Desempleo (DESEM) y la Población Económicamente Activa (PEA).",
+  },
+  {
+    name: "Empleo",
+    survey: "Persona",
+    description: "Corresponde a la proporción de la PEA que se encuentra ocupada (cualquier tipo de empleo: adecuado, inadecuado, subempleo, no remunerado, etc.)",
+  },
+  {
+    name: "Empleo formal",
+    survey: "Persona",
+    description: "Mide la proporción de personas ocupadas que se encuentran en empleos considerados formales (seguridad social, contrato formal, cumplimiento de normas laborales, etc., según la clasificación oficial empleada en ENEMDU).",
+  },
+  {
+    name: "Empleo informal",
+    survey: "Persona",
+    description: "Corresponde a la proporción de personas ocupadas que trabajan en condiciones de informalidad (sin seguridad social, sin contrato, en unidades productivas informales, etc.)",
+  },
+  {
+    name: "Empleo adecuado",
+    survey: "Persona",
+    description: "Es la proporción de la PEA que se encuentra ocupada en empleos que cumplen los criterios de adecuación laboral definidos por la ENEMDU (por ejemplo, horas trabajadas, ingresos iguales o superiores al salario de referencia, estabilidad, seguridad social, etc.).",
+  },
+  {
+    name: "Subempleo",
+    survey: "Persona",
+    description: "Refleja la proporción de la PEA que se encuentra en una situación de subempleo, generalmente definida como personas ocupadas que trabajan menos horas de las deseadas y/o perciben ingresos inferiores a un umbral de referencia, y que están disponibles para trabajar más.",
+  },
+  {
+    name: "Empleo no remunerado",
+    survey: "Persona",
+    description: "Mide la proporción de la PEA que realiza actividades económicas sin recibir un pago directo (por ejemplo, trabajo familiar no remunerado en negocios o actividades agrícolas del hogar).",
+  },
+  {
+    name: "Otro empleo no pleno",
+    survey: "Persona",
+    description: "Mide el porcentaje de personas ocupadas que se encuentran en la categoría de otro empleo no pleno respecto del total de la Población Económicamente Activa (PEA), de acuerdo con la clasificación de condición de empleo utilizada en la ENEMDU. Ejemplo: descripción de Otro empleo no pleno (actualizar).",
+  },
+  {
+    name: "Brecha salarial entre hombres y mujeres",
+    survey: "Persona",
+    description: "Mide la diferencia porcentual entre el ingreso laboral promedio de los hombres ocupados y el de las mujeres ocupadas",
+  },
+  {
+    name: "Brecha de empleo adecuado (hombre/mujer)",
+    survey: "Persona",
+    description: "Mide la diferencia relativa en la tasa de empleo adecuado entre hombres y mujeres.",
+  },
+  {
+    name: "Jóvenes que no estudian ni trabajan (NiNi)",
+    survey: "Persona",
+    description: "Corresponde a la proporción de jóvenes que no estudian ni participan en el mercado laboral (no están ocupados ni buscan empleo), sobre el total de jóvenes en la edad definida para este grupo (típicamente 15–24 años, según la clasificación utilizada en ENEMDU).",
+  },
+  {
+    name: "Desempleo juvenil",
+    survey: "Persona",
+    description: "Mide la proporción de jóvenes que se encuentran desempleados (búsqueda activa y disponibilidad) sobre el total de jóvenes en la PEA juvenil.",
+  },
+  {
+    name: "Trabajo infantil",
+    survey: "Persona",
+    description: "Mide la proporción de niñas, niños y adolescentes en el rango de edad definido para trabajo infantil (por ejemplo, 5–14 años, según la normativa vigente) que realizan actividades económicas clasificadas como trabajo infantil",
+  },
+  {
+    name: "Tasa de asistencia a clases",
+    survey: "Persona",
+    description: "Mide la proporción de niñas, niños y jóvenes de 5 a 24 años que asisten a algún establecimiento educativo formal",
+  },
+  {
+    name: "Empleo en manufactura",
+    survey: "Persona",
+    description: "Mide la proporción de personas ocupadas que trabajan en actividades de la industria manufacturera (por ejemplo, según la clasificación CIIU sección C o equivalente",
+  },
+  {
+    name: "Pobreza por ingresos",
+    survey: "Persona",
+    description: "Mide la proporción de personas que viven en hogares cuyo ingreso per cápita se encuentra por debajo de la línea oficial de pobreza por ingresos.",
+  },
+  {
+    name: "Pobreza extrema por ingresos",
+    survey: "Persona",
+    description: "Corresponde a la proporción de personas que viven en hogares cuyo ingreso per cápita se encuentra por debajo de la línea oficial de pobreza extrema por ingresos.",
+  },
+  {
+    // Usa Persona + Vivienda (NBI)
+    name: "Tasa de pobreza por necesidades básicas insatisfechas",
+    survey: "Persona + Vivienda",
+    description: "Mide la proporción de personas que pertenecen a un hogar que presenta carencias en la satisfacción de al menos una de sus necesidades básicas, definidas en cinco componentes: Calidad de la vivienda, Hacinamiento, Acceso a servicios básicos, Acceso a educación, Capacidad económica del hogar",
+  },
+  {
+    // Usa Persona + Vivienda (MPI)
+    name: "Tasa de pobreza multidimensional",
+    survey: "Persona + Vivienda",
+    description: "Mide el porcentaje de personas que se encuentran en situación de pobreza cuando se consideran simultáneamente múltiples dimensiones de bienestar (educación, trabajo y seguridad social, salud, vivienda, servicios básicos, entre otras)",
+  },
+  {
+    // Usa Persona + Vivienda (MPI extrema)
+    name: "Tasa de pobreza extrema multidimensional",
+    survey: "Persona + Vivienda",
+    description: "Mide el porcentaje de personas que presentan niveles muy altos de privación multidimensional, de acuerdo con un umbral de privación más exigente que el usado para pobreza multidimensional.",
+  },
+];
+
+// ------------------------
+// Latinobarómetro
+// ------------------------
+
+const latinobarometroIndicators = [
+  {
+    name: "Apoyo a la democracia",
+    description: "Mide el porcentaje de personas que estan de acuerdo con la democracia como forma de gobierno princial.",
+  },
+  {
+    name: "Indiferencia o apoyo a alternativas autoritarias",
+    description: "Mide el procentaje de personas que les resulta indiferente y/o apoyarían a un gobierno autoritario.",
+  },
+  {
+    name: "Satisfacción con la democracia",
+    description: "Mide el porcentaje de personas que están satisfechas con la democracia.",
+  },
+  {
+    name: "Ubicación ideológica izquierda-derecha",
+    description: "Mide el procentaje de personas que apoyan a la izquierda ideológica y derecha ideológica.",
+  },
+  {
+    name: "Evaluación de la situación económica del país",
+    description: "Mide el porcentaje en cuanto a la percepción de la economía general del país.",
+  },
+  {
+    name: "Evaluación de la situación económica personal",
+    description: "Mide el porcentaje en cuanto a la percepción de la economía personal.",
+  },
+  {
+    name: "Preocupación por perder el empleo",
+    description: "Cuantifica la preocupación por perder el empleo en un futuro.",
+  },
+  {
+    name: "Tenencia de bienes y servicios en el hogar",
+    description: "Mide el procentaje de posesión de bienes personales como Autos, Lavadoras, Alcantarillado, Agua Caliente, etc.",
+  },
+  {
+    name: "Confianza en instituciones",
+    description: "Mide el porcentaje de confianza en diferentes instituciones como Gobierno, Partidos Políticos, Ejercito, Iglesia, etc.",
+  },
+];
+
+// ------------------------
+// V-Dem
+// ------------------------
+
+const vdemIndicators = [
+  {
+    name: "Índice de democracia electoral (v2x_polyarchy)",
+    description: "Resume el grado en el que un país cumple con los principios de la “poliarquía” en el sentido de Dahl: elecciones libres y competitivas, sufragio amplio, libertad de expresión, libertad de asociación y acceso a fuentes alternativas de información.",
+  },
+  {
+    name: "Índice de democracia liberal (v2x_libdem)",
+    description: "Amplía el concepto de democracia electoral incorporando la limitación del poder ejecutivo mediante el estado de derecho, la independencia judicial y los controles legislativos y judiciales.",
+  },
+  {
+    name: "Índice de democracia participativa (v2x_partipdem)",
+    description: "Mide el grado en el que la ciudadanía participa en la vida política más allá del voto, incluyendo la fortaleza de la sociedad civil, la existencia de mecanismos de democracia directa y el involucramiento de organizaciones populares.",
+  },
+  {
+    name: "Índice de democracia deliberativa (v2x_delibdem)",
+    description: "Refleja hasta qué punto la toma de decisiones políticas está guiada por procesos de deliberación pública, argumentación razonada y consideración del bien común, en lugar de basarse en intereses particulares, coerción o intercambios clientelares",
+  },
+  {
+    name: "Índice de democracia igualitaria (v2x_egaldem)",
+    description: "Mide hasta qué punto los recursos políticos y las garantías democráticas se distribuyen de manera relativamente igualitaria entre diferentes grupos de la población (por ejemplo, grupos socioeconómicos, étnicos, territoriales y de género). Evalúa la dimensión igualitaria de la democracia.",
+  },
+  {
+    name: "Libertad de expresión y fuentes alternativas de información (v2x_freexp_altinf)",
+    description:
+      "Sintetiza la medida en que los ciudadanos pueden expresar opiniones políticas sin temor, acceder a medios independientes y disponer de fuentes alternativas de información.",
+  },
+  {
+    name: "Integridad de elecciones (índice de elecciones libres y justas, v2xel_frefair)",
+    description:
+      "Evalúa qué tan libres y justas son las elecciones, considerando aspectos como la ausencia de fraude, la competencia real entre opciones políticas, la imparcialidad de las autoridades electorales y el respeto a los resultados.",
+  },
+  {
+    name: "Igualdad ante la ley y libertades individuales (v2xcl_rol)",
+    description:
+      "Mide la igualdad ante la ley y el respeto a las libertades civiles. Incluye dimensiones como la protección contra detenciones arbitrarias, el respeto al debido proceso, la libertad de movimiento y la ausencia de discriminación legal sistemática.",
+  },
+  {
+    name: "Controles judiciales sobre el ejecutivo (v2x_jucon)",
+    description: "Refleja el grado en que el poder judicial ejerce controles efectivos sobre el poder ejecutivo, incluyendo la independencia de jueces y tribunales, y la capacidad de revisar y limitar las decisiones del gobierno.",
+  },
+  {
+    name: "Controles legislativos sobre el ejecutivo (v2xlg_legcon)",
+    description: "Mide el grado en el que el poder legislativo puede supervisar, cuestionar y limitar al poder ejecutivo. Considera aspectos como la capacidad de investigar al gobierno, de destituir a autoridades y de modificar la agenda legislativa impulsada por el ejecutivo.",
+  },
+  {
+    name: "Igual protección legal (v2xeg_eqprotec)",
+    description: "Evalúa hasta qué punto todos los individuos reciben una protección legal similar, independientemente de su estatus socioeconómico, género, etnia, religión u otra característica. ",
+  },
+  {
+    name: "Igual acceso a recursos públicos (v2xeg_eqaccess)",
+    description: "Mide la igualdad en el acceso a servicios y recursos proporcionados por el Estado (por ejemplo, educación, salud, infraestructura), entre distintos grupos de la población. Captura si el Estado distribuye estos recursos de manera relativamente equitativa.",
+  },
+  {
+    name: "Igual distribución de recursos (v2xeg_eqdr)",
+    description: "Resume el grado en el que los recursos económicos y sociales se distribuyen de forma relativamente equitativa en la sociedad, más allá del acceso formal a servicios públicos.",
+  },
+  {
+    name: "Distribución del poder por estatus socioeconómico (v2pepwrses)",
+    description:
+      "Mide en qué medida el poder político efectivo está concentrado en grupos de estatus socioeconómico alto (por ejemplo, élites económicas) o, por el contrario, distribuido de forma más equitativa entre clases sociales. ",
+  },
+  {
+    name: "Distribución del poder por grupo social (v2pepwrsoc)",
+    description: "Captura la medida en que el poder político está distribuido entre distintos grupos sociales (por ejemplo, étnicos o de casta), o concentrado en uno o pocos grupos dominantes.",
+  },
+  {
+    name: "Distribución del poder por género (v2pepwrgen)",
+    description: "Evalúa la distribución del poder político entre hombres y mujeres, incluyendo la presencia de mujeres en cargos electivos, posiciones de decisión y otros espacios de poder institucional.",
+  },
+  {
+    name: "Distribución del poder por orientación religiosa (v2pepwrort)",
+    description:
+      "Mide hasta qué punto el poder político está sesgado hacia determinados grupos religiosos o si, por el contrario, se encuentra distribuido de forma más equitativa entre distintas orientaciones religiosas.",
+  },
+  {
+    name: "Distribución del poder por región geográfica (v2pepwrgeo)",
+    description:
+      "Refleja en qué medida el poder político está concentrado en ciertas regiones del país (por ejemplo, capitales o zonas urbanas) o si existe una distribución más equilibrada entre las distintas regiones geográficas.",
+  },
+];
+
+// ------------------------
+// indicatorsTable final
+// ------------------------
 
 const indicatorsTable = [
-  // =======================
-  // ENEMDU (Ecuador)
-  // =======================
-  {
-    source: "ENEMDU (Ecuador)",
-    name: "Tasa de participación global",
-    formula: (
-      <>
-        TPG = 100 ×{" "}
-        <Frac
-          num={
-            <>
-              Σ<sub>i∈PEA</sub> w<sub>i</sub>
-            </>
-          }
-          den={
-            <>
-              Σ<sub>i∈PET</sub> w<sub>i</sub>
-            </>
-          }
-        />
-      </>
-    ),
+  // ENEMDU
+  ...enemduIndicators.map(({ name, survey, description }) => ({
+    source: "ENEMDU",
+    survey,
+    name,
+    description,
     geo: { nat: true, prov: true, cant: true, parr: true },
     temp: { annual: true, monthly: true },
     period: { from: "2007", to: "2025" },
-  },
-  {
-    source: "ENEMDU (Ecuador)",
-    name: "Tasa de participación bruta",
-    formula: (
-      <>
-        TPB = 100 ×{" "}
-        <Frac
-          num={
-            <>
-              Σ<sub>i∈PEA</sub> w<sub>i</sub>
-            </>
-          }
-          den={
-            <>
-              Σ<sub>i∈Población total</sub> w<sub>i</sub>
-            </>
-          }
-        />
-      </>
-    ),
-    geo: { nat: true, prov: true, cant: true, parr: true },
-    temp: { annual: true, monthly: true },
-    period: { from: "2007", to: "2025" },
-  },
-  {
-    source: "ENEMDU (Ecuador)",
-    name: "Tasa de desempleo",
-    formula: (
-      <>
-        TD = 100 ×{" "}
-        <Frac
-          num={
-            <>
-              Σ<sub>i∈Desempleados</sub> w<sub>i</sub>
-            </>
-          }
-          den={
-            <>
-              Σ<sub>i∈PEA</sub> w<sub>i</sub>
-            </>
-          }
-        />
-      </>
-    ),
-    geo: { nat: true, prov: true, cant: true, parr: true },
-    temp: { annual: true, monthly: true },
-    period: { from: "2007", to: "2025" },
-  },
-  {
-    source: "ENEMDU (Ecuador)",
-    name: "Empleo total",
-    formula: (
-      <>
-        ET = 100 ×{" "}
-        <Frac
-          num={
-            <>
-              Σ<sub>i∈Ocupados</sub> w<sub>i</sub>
-            </>
-          }
-          den={
-            <>
-              Σ<sub>i∈PEA</sub> w<sub>i</sub>
-            </>
-          }
-        />
-      </>
-    ),
-    geo: { nat: true, prov: true, cant: true, parr: true },
-    temp: { annual: true, monthly: true },
-    period: { from: "2007", to: "2025" },
-  },
-  {
-    source: "ENEMDU (Ecuador)",
-    name: "Empleo formal",
-    formula: (
-      <>
-        EF = 100 ×{" "}
-        <Frac
-          num={
-            <>
-              Σ<sub>i∈Empleo formal</sub> w<sub>i</sub>
-            </>
-          }
-          den={
-            <>
-              Σ<sub>i∈Ocupados</sub> w<sub>i</sub>
-            </>
-          }
-        />
-      </>
-    ),
-    geo: { nat: true, prov: true, cant: true, parr: true },
-    temp: { annual: true, monthly: true },
-    period: { from: "2007", to: "2025" },
-  },
-  {
-    source: "ENEMDU (Ecuador)",
-    name: "Empleo informal",
-    formula: (
-      <>
-        EI = 100 ×{" "}
-        <Frac
-          num={
-            <>
-              Σ<sub>i∈Empleo informal</sub> w<sub>i</sub>
-            </>
-          }
-          den={
-            <>
-              Σ<sub>i∈Ocupados</sub> w<sub>i</sub>
-            </>
-          }
-        />
-      </>
-    ),
-    geo: { nat: true, prov: true, cant: true, parr: true },
-    temp: { annual: true, monthly: true },
-    period: { from: "2007", to: "2025" },
-  },
-  {
-    source: "ENEMDU (Ecuador)",
-    name: "Empleo adecuado",
-    formula: (
-      <>
-        EA = 100 ×{" "}
-        <Frac
-          num={
-            <>
-              Σ<sub>i∈Empleo adecuado</sub> w<sub>i</sub>
-            </>
-          }
-          den={
-            <>
-              Σ<sub>i∈PEA</sub> w<sub>i</sub>
-            </>
-          }
-        />
-      </>
-    ),
-    geo: { nat: true, prov: true, cant: true, parr: true },
-    temp: { annual: true, monthly: true },
-    period: { from: "2007", to: "2025" },
-  },
-  {
-    source: "ENEMDU (Ecuador)",
-    name: "Subempleo",
-    formula: (
-      <>
-        SUB = 100 ×{" "}
-        <Frac
-          num={
-            <>
-              Σ<sub>i∈Subempleados</sub> w<sub>i</sub>
-            </>
-          }
-          den={
-            <>
-              Σ<sub>i∈PEA</sub> w<sub>i</sub>
-            </>
-          }
-        />
-      </>
-    ),
-    geo: { nat: true, prov: true, cant: true, parr: true },
-    temp: { annual: true, monthly: true },
-    period: { from: "2007", to: "2025" },
-  },
-  {
-    source: "ENEMDU (Ecuador)",
-    name: "Empleo no remunerado",
-    formula: (
-      <>
-        ENR = 100 ×{" "}
-        <Frac
-          num={
-            <>
-              Σ<sub>i∈Empleo no remunerado</sub> w<sub>i</sub>
-            </>
-          }
-          den={
-            <>
-              Σ<sub>i∈Ocupados</sub> w<sub>i</sub>
-            </>
-          }
-        />
-      </>
-    ),
-    geo: { nat: true, prov: true, cant: true, parr: true },
-    temp: { annual: true, monthly: true },
-    period: { from: "2007", to: "2025" },
-  },
-  {
-    source: "ENEMDU (Ecuador)",
-    name: "Otro empleo no pleno",
-    formula: (
-      <>
-        OEP = 100 ×{" "}
-        <Frac
-          num={
-            <>
-              Σ<sub>i∈Otro empleo no pleno</sub> w<sub>i</sub>
-            </>
-          }
-          den={
-            <>
-              Σ<sub>i∈PEA</sub> w<sub>i</sub>
-            </>
-          }
-        />
-      </>
-    ),
-    geo: { nat: true, prov: true, cant: true, parr: true },
-    temp: { annual: true, monthly: true },
-    period: { from: "2007", to: "2025" },
-  },
-  {
-    source: "ENEMDU (Ecuador)",
-    name: "Brecha salarial entre hombres y mujeres",
-    formula: (
-      <>
-        Brecha<sub>HM</sub> = 100 ×{" "}
-        <Frac
-          num={
-            <>
-              ȳ<sub>h</sub> − ȳ<sub>m</sub>
-            </>
-          }
-          den={
-            <>
-              ȳ<sub>h</sub>
-            </>
-          }
-        />
-      </>
-    ),
-    geo: { nat: true, prov: true, cant: true, parr: true },
-    temp: { annual: true, monthly: true },
-    period: { from: "2007", to: "2025" },
-  },
-  {
-    source: "ENEMDU (Ecuador)",
-    name: "Brecha de empleo adecuado (hombre/mujer)",
-    formula: (
-      <>
-        BrechaEA<sub>HM</sub> = 100 ×{" "}
-        <Frac
-          num={
-            <>
-              EA<sub>h</sub> − EA<sub>m</sub>
-            </>
-          }
-          den={
-            <>
-              EA<sub>h</sub>
-            </>
-          }
-        />
-      </>
-    ),
-    geo: { nat: true, prov: true, cant: true, parr: true },
-    temp: { annual: true, monthly: true },
-    period: { from: "2007", to: "2025" },
-  },
-  {
-    source: "ENEMDU (Ecuador)",
-    name: "Jóvenes que no estudian ni trabajan (NiNi)",
-    formula: (
-      <>
-        NiNi = 100 ×{" "}
-        <Frac
-          num={
-            <>
-              Σ<sub>i∈NiNi</sub> w<sub>i</sub>
-            </>
-          }
-          den={
-            <>
-              Σ<sub>i∈Población joven</sub> w<sub>i</sub>
-            </>
-          }
-        />
-      </>
-    ),
-    geo: { nat: true, prov: true, cant: true, parr: true },
-    temp: { annual: true, monthly: true },
-    period: { from: "2007", to: "2025" },
-  },
-  {
-    source: "ENEMDU (Ecuador)",
-    name: "Desempleo juvenil",
-    formula: (
-      <>
-        TDJ = 100 ×{" "}
-        <Frac
-          num={
-            <>
-              Σ<sub>i∈Desempleados jóvenes</sub> w<sub>i</sub>
-            </>
-          }
-          den={
-            <>
-              Σ<sub>i∈PEA juvenil</sub> w<sub>i</sub>
-            </>
-          }
-        />
-      </>
-    ),
-    geo: { nat: true, prov: true, cant: true, parr: true },
-    temp: { annual: true, monthly: true },
-    period: { from: "2007", to: "2025" },
-  },
-  {
-    source: "ENEMDU (Ecuador)",
-    name: "Trabajo infantil",
-    formula: (
-      <>
-        TI = 100 ×{" "}
-        <Frac
-          num={
-            <>
-              Σ<sub>i∈Niños con trabajo infantil</sub> w<sub>i</sub>
-            </>
-          }
-          den={
-            <>
-              Σ<sub>i∈Niños</sub> w<sub>i</sub>
-            </>
-          }
-        />
-      </>
-    ),
-    geo: { nat: true, prov: true, cant: true, parr: true },
-    temp: { annual: true, monthly: true },
-    period: { from: "2007", to: "2025" },
-  },
-  {
-    source: "ENEMDU (Ecuador)",
-    name: "Tasa de asistencia a clases",
-    formula: (
-      <>
-        TAC = 100 ×{" "}
-        <Frac
-          num={
-            <>
-              Σ<sub>i∈Asisten a clases (5–24)</sub> w<sub>i</sub>
-            </>
-          }
-          den={
-            <>
-              Σ<sub>i∈Población 5–24</sub> w<sub>i</sub>
-            </>
-          }
-        />
-      </>
-    ),
-    geo: { nat: true, prov: true, cant: true, parr: true },
-    temp: { annual: true, monthly: true },
-    period: { from: "2007", to: "2025" },
-  },
-  {
-    source: "ENEMDU (Ecuador)",
-    name: "Empleo en manufactura",
-    formula: (
-      <>
-        EMM = 100 ×{" "}
-        <Frac
-          num={
-            <>
-              Σ<sub>i∈Ocupados en manufactura</sub> w<sub>i</sub>
-            </>
-          }
-          den={
-            <>
-              Σ<sub>i∈Ocupados</sub> w<sub>i</sub>
-            </>
-          }
-        />
-      </>
-    ),
-    geo: { nat: true, prov: true, cant: true, parr: true },
-    temp: { annual: true, monthly: true },
-    period: { from: "2007", to: "2025" },
-  },
-  {
-    source: "ENEMDU (Ecuador)",
-    name: "Pobreza por ingresos",
-    formula: (
-      <>
-        Pobreza = 100 ×{" "}
-        <Frac
-          num={
-            <>
-              Σ<sub>i∈Bajo línea de pobreza</sub> w<sub>i</sub>
-            </>
-          }
-          den={
-            <>
-              Σ<sub>i∈Población con ingreso válido</sub> w<sub>i</sub>
-            </>
-          }
-        />
-      </>
-    ),
-    geo: { nat: true, prov: true, cant: true, parr: true },
-    temp: { annual: true, monthly: true },
-    period: { from: "2007", to: "2025" },
-  },
-  {
-    source: "ENEMDU (Ecuador)",
-    name: "Pobreza extrema por ingresos",
-    formula: (
-      <>
-        PobrezaExt = 100 ×{" "}
-        <Frac
-          num={
-            <>
-              Σ<sub>i∈Bajo línea de pobreza extrema</sub> w<sub>i</sub>
-            </>
-          }
-          den={
-            <>
-              Σ<sub>i∈Población con ingreso válido</sub> w<sub>i</sub>
-            </>
-          }
-        />
-      </>
-    ),
-    geo: { nat: true, prov: true, cant: true, parr: true },
-    temp: { annual: true, monthly: true },
-    period: { from: "2007", to: "2025" },
-  },
-  {
-    source: "ENEMDU (Ecuador)",
-    name: "Tasa de pobreza por necesidades básicas insatisfechas",
-    formula: (
-      <>
-        NBI = 100 × (1/n) × Σ<sub>k=1</sub>
-        <sup>n</sup> P<sub>k</sub>
-        <sup>*</sup>
-      </>
-    ),
-    geo: { nat: true, prov: true, cant: true, parr: true },
-    temp: { annual: true, monthly: true },
-    period: { from: "2007", to: "2025" },
-  },
-  {
-    source: "ENEMDU (Ecuador)",
-    name: "Tasa de pobreza multidimensional",
-    formula: (
-      <>
-        TPM = 100 × (1/n) × Σ<sub>i=1</sub>
-        <sup>n</sup> I(c<sub>i</sub> ≥ k)
-      </>
-    ),
-    geo: { nat: true, prov: true, cant: true, parr: true },
-    temp: { annual: true, monthly: true },
-    period: { from: "2007", to: "2025" },
-  },
-  {
-    source: "ENEMDU (Ecuador)",
-    name: "Tasa de pobreza extrema multidimensional",
-    formula: (
-      <>
-        TPEM = 100 × (1/n) × Σ<sub>i=1</sub>
-        <sup>n</sup> I(c<sub>i</sub> ≥ k
-        <sup>ext</sup>)
-      </>
-    ),
-    geo: { nat: true, prov: true, cant: true, parr: true },
-    temp: { annual: true, monthly: true },
-    period: { from: "2007", to: "2025" },
-  },
+    methodology: {
+      label: `Ficha metodológica ENEMDU`,
+      url: "https://www.ecuadorencifras.gob.ec/documentos/web-inec/EMPLEO/2018/Septiembre-2018/ENEMDU_Metodologia%20Encuesta%20Nacional%20de%20Empleo%20Desempleo%20y%20Subempleo.pdf",
+    },
+  })),
 
-  // =======================
   // Latinobarómetro
-  // =======================
-  {
+  ...latinobarometroIndicators.map(({ name, description }) => ({
     source: "Latinobarómetro",
-    name: "Apoyo a la democracia",
-    formula: "Variable directa o recodificada de democ_supp",
+    name,
+    description,
     geo: { nat: true, prov: false, cant: false, parr: false },
     temp: { annual: true, monthly: false },
     period: { from: "1995", to: "2024" },
-  },
-  {
-    source: "Latinobarómetro",
-    name: "Indiferencia o apoyo a alternativas autoritarias",
-    formula: "Recodificación de democ_supp",
-    geo: { nat: true, prov: false, cant: false, parr: false },
-    temp: { annual: true, monthly: false },
-    period: { from: "1995", to: "2024" },
-  },
-  {
-    source: "Latinobarómetro",
-    name: "Satisfacción con la democracia",
-    formula: "Variable directa o recodificada de democ_satis",
-    geo: { nat: true, prov: false, cant: false, parr: false },
-    temp: { annual: true, monthly: false },
-    period: { from: "1995", to: "2024" },
-  },
-  {
-    source: "Latinobarómetro",
-    name: "Ubicación ideológica izquierda–centro–derecha",
-    formula: "Variable directa o recodificada de left_right_scale",
-    geo: { nat: true, prov: false, cant: false, parr: false },
-    temp: { annual: true, monthly: false },
-    period: { from: "1995", to: "2024" },
-  },
-  {
-    source: "Latinobarómetro",
-    name: "Evaluación de la situación económica del país",
-    formula: "Variable directa o recodificada de econ_situation",
-    geo: { nat: true, prov: false, cant: false, parr: false },
-    temp: { annual: true, monthly: false },
-    period: { from: "1995", to: "2024" },
-  },
-  {
-    source: "Latinobarómetro",
-    name: "Evaluación de la situación económica personal",
-    formula:
-      "Variable directa o recodificada de resp_economic_perception",
-    geo: { nat: true, prov: false, cant: false, parr: false },
-    temp: { annual: true, monthly: false },
-    period: { from: "1995", to: "2024" },
-  },
-  {
-    source: "Latinobarómetro",
-    name: "Preocupación por perder el empleo",
-    formula: "Variable directa o recodificada de job_concern",
-    geo: { nat: true, prov: false, cant: false, parr: false },
-    temp: { annual: true, monthly: false },
-    period: { from: "1995", to: "2024" },
-  },
-  {
-    source: "Latinobarómetro",
-    name: "Tenencia de bienes y servicios en el hogar",
-    formula: "Variable directa o recodificada de goods_car",
-    geo: { nat: true, prov: false, cant: false, parr: false },
-    temp: { annual: true, monthly: false },
-    period: { from: "1995", to: "2024" },
-  },
-  {
-    source: "Latinobarómetro",
-    name: "Confianza en instituciones",
-    formula: "Índices de confianza agregados (variables trust_*)",
-    geo: { nat: true, prov: false, cant: false, parr: false },
-    temp: { annual: true, monthly: false },
-    period: { from: "1995", to: "2024" },
-  },
-  {
-    source: "Latinobarómetro",
-    name: "Otras variables normalizadas de contexto",
-    formula:
-      "Conjunto de variables normalizadas de contexto (sexo, edad, educación, etc.)",
-    geo: { nat: true, prov: false, cant: false, parr: false },
-    temp: { annual: true, monthly: false },
-    period: { from: "1995", to: "2024" },
-  },
+    methodology: {
+      label: "Documentación y fichas técnicas de Latinobarómetro",
+      url: "https://www.latinobarometro.org/documentacion-datos",
+    },
+  })),
 
-  // =======================
   // V-Dem
-  // =======================
-  {
+  ...vdemIndicators.map(({ name, description }) => ({
     source: "V-Dem",
-    name: "Índice de democracia electoral (v2x_polyarchy)",
-    formula: "Variable directa: v2x_polyarchy",
+    name,
+    description,
     geo: { nat: true, prov: false, cant: false, parr: false },
     temp: { annual: true, monthly: false },
     period: { from: "1789", to: "2024" },
-  },
-  {
-    source: "V-Dem",
-    name: "Índice de democracia liberal (v2x_libdem)",
-    formula: "Variable directa: v2x_libdem",
-    geo: { nat: true, prov: false, cant: false, parr: false },
-    temp: { annual: true, monthly: false },
-    period: { from: "1789", to: "2024" },
-  },
-  {
-    source: "V-Dem",
-    name: "Índice de democracia participativa (v2x_partipdem)",
-    formula: "Variable directa: v2x_partipdem",
-    geo: { nat: true, prov: false, cant: false, parr: false },
-    temp: { annual: true, monthly: false },
-    period: { from: "1789", to: "2024" },
-  },
-  {
-    source: "V-Dem",
-    name: "Índice de democracia deliberativa (v2x_delibdem)",
-    formula: "Variable directa: v2x_delibdem",
-    geo: { nat: true, prov: false, cant: false, parr: false },
-    temp: { annual: true, monthly: false },
-    period: { from: "1789", to: "2024" },
-  },
-  {
-    source: "V-Dem",
-    name: "Índice de democracia igualitaria (v2x_egaldem)",
-    formula: "Variable directa: v2x_egaldem",
-    geo: { nat: true, prov: false, cant: false, parr: false },
-    temp: { annual: true, monthly: false },
-    period: { from: "1789", to: "2024" },
-  },
-  {
-    source: "V-Dem",
-    name:
-      "Libertad de expresión y fuentes alternativas de información (v2x_freexp_altinf)",
-    formula: "Variable directa: v2x_freexp_altinf",
-    geo: { nat: true, prov: false, cant: false, parr: false },
-    temp: { annual: true, monthly: false },
-    period: { from: "1789", to: "2024" },
-  },
-  {
-    source: "V-Dem",
-    name:
-      "Integridad de elecciones (índice de elecciones libres y justas, v2xel_frefair)",
-    formula: "Variable directa: v2xel_frefair",
-    geo: { nat: true, prov: false, cant: false, parr: false },
-    temp: { annual: true, monthly: false },
-    period: { from: "1789", to: "2024" },
-  },
-  {
-    source: "V-Dem",
-    name:
-      "Igualdad ante la ley y libertades individuales (v2xcl_rol)",
-    formula: "Variable directa: v2xcl_rol",
-    geo: { nat: true, prov: false, cant: false, parr: false },
-    temp: { annual: true, monthly: false },
-    period: { from: "1789", to: "2024" },
-  },
-  {
-    source: "V-Dem",
-    name:
-      "Controles judiciales sobre el ejecutivo (v2x_jucon)",
-    formula: "Variable directa: v2x_jucon",
-    geo: { nat: true, prov: false, cant: false, parr: false },
-    temp: { annual: true, monthly: false },
-    period: { from: "1789", to: "2024" },
-  },
-  {
-    source: "V-Dem",
-    name:
-      "Controles legislativos sobre el ejecutivo (v2xlg_legcon)",
-    formula: "Variable directa: v2xlg_legcon",
-    geo: { nat: true, prov: false, cant: false, parr: false },
-    temp: { annual: true, monthly: false },
-    period: { from: "1789", to: "2024" },
-  },
-  {
-    source: "V-Dem",
-    name: "Igual protección legal (v2xeg_eqprotec)",
-    formula: "Variable directa: v2xeg_eqprotec",
-    geo: { nat: true, prov: false, cant: false, parr: false },
-    temp: { annual: true, monthly: false },
-    period: { from: "1789", to: "2024" },
-  },
-  {
-    source: "V-Dem",
-    name: "Igual acceso a recursos públicos (v2xeg_eqaccess)",
-    formula: "Variable directa: v2xeg_eqaccess",
-    geo: { nat: true, prov: false, cant: false, parr: false },
-    temp: { annual: true, monthly: false },
-    period: { from: "1789", to: "2024" },
-  },
-  {
-    source: "V-Dem",
-    name: "Igual distribución de recursos (v2xeg_eqdr)",
-    formula: "Variable directa: v2xeg_eqdr",
-    geo: { nat: true, prov: false, cant: false, parr: false },
-    temp: { annual: true, monthly: false },
-    period: { from: "1789", to: "2024" },
-  },
-  {
-    source: "V-Dem",
-    name:
-      "Distribución del poder por estatus socioeconómico (v2pepwrses)",
-    formula: "Variable directa: v2pepwrses",
-    geo: { nat: true, prov: false, cant: false, parr: false },
-    temp: { annual: true, monthly: false },
-    period: { from: "1789", to: "2024" },
-  },
-  {
-    source: "V-Dem",
-    name:
-      "Distribución del poder por grupo social (v2pepwrsoc)",
-    formula: "Variable directa: v2pepwrsoc",
-    geo: { nat: true, prov: false, cant: false, parr: false },
-    temp: { annual: true, monthly: false },
-    period: { from: "1789", to: "2024" },
-  },
-  {
-    source: "V-Dem",
-    name: "Distribución del poder por género (v2pepwrgen)",
-    formula: "Variable directa: v2pepwrgen",
-    geo: { nat: true, prov: false, cant: false, parr: false },
-    temp: { annual: true, monthly: false },
-    period: { from: "1789", to: "2024" },
-  },
-  {
-    source: "V-Dem",
-    name:
-      "Distribución del poder por orientación religiosa (v2pepwrort)",
-    formula: "Variable directa: v2pepwrort",
-    geo: { nat: true, prov: false, cant: false, parr: false },
-    temp: { annual: true, monthly: false },
-    period: { from: "1789", to: "2024" },
-  },
-  {
-    source: "V-Dem",
-    name:
-      "Distribución del poder por región geográfica (v2pepwrgeo)",
-    formula: "Variable directa: v2pepwrgeo",
-    geo: { nat: true, prov: false, cant: false, parr: false },
-    temp: { annual: true, monthly: false },
-    period: { from: "1789", to: "2024" },
-  },
+    methodology: {
+      label: "Metodología general de V-Dem",
+      url: "https://v-dem.net/documents/56/methodology.pdf",
+    },
+  })),
 ];
 
 
 const BasesUsadasPage = () => {
-  const yes = "✓";
-  const no = "—";
+  // const yes = "✓";
+  // const no = "—";
 
   return (
     <div className="page bases-page">
@@ -993,17 +537,20 @@ const BasesUsadasPage = () => {
             <colgroup>
               <col className="col-source" />
               <col className="col-indicator" />
-              <col className="col-formula" />
+              <col className="col-description" />
               <col className="col-small" span="8" />
+              <col className="col-methodology" />
             </colgroup>
+
             <thead>
               <tr>
                 <th rowSpan={2}>Fuente</th>
                 <th rowSpan={2}>Indicador</th>
-                <th rowSpan={2}>Fórmula</th>
+                <th rowSpan={2}>Descripción</th>
                 <th colSpan={4}>Desagregación geográfica</th>
                 <th colSpan={2}>Desagregación temporal</th>
                 <th colSpan={2}>Periodo</th>
+                <th rowSpan={2}>Ficha metodológica</th>
               </tr>
               <tr>
                 <th>Nacional</th>
@@ -1016,6 +563,7 @@ const BasesUsadasPage = () => {
                 <th>Hasta</th>
               </tr>
             </thead>
+
             <tbody>
               {indicatorsTable.map((ind) => (
                 <tr
@@ -1028,9 +576,12 @@ const BasesUsadasPage = () => {
                       .replace(/[^a-z0-9]/g, "")
                     }`}
                 >
-                  <td>{ind.source}</td>
+                  <td>
+                    {ind.source}
+                    {ind.survey ? ` - ${ind.survey}` : ""}
+                  </td>
                   <td>{ind.name}</td>
-                  <td className="bases-indicators-formula">{ind.formula}</td>
+                  <td>{ind.description}</td>
                   <td>{ind.geo.nat ? "✓" : "—"}</td>
                   <td>{ind.geo.prov ? "✓" : "—"}</td>
                   <td>{ind.geo.cant ? "✓" : "—"}</td>
@@ -1039,9 +590,24 @@ const BasesUsadasPage = () => {
                   <td>{ind.temp.monthly ? "✓" : "—"}</td>
                   <td>{ind.period.from}</td>
                   <td>{ind.period.to}</td>
+                  <td>
+                    {ind.methodology ? (
+                      <a
+                        href={ind.methodology.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {ind.methodology.label}
+                      </a>
+                    ) : (
+                      "—"
+                    )}
+                  </td>
+
                 </tr>
               ))}
             </tbody>
+
           </table>
         </div>
       </section>

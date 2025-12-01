@@ -18,7 +18,7 @@ app.use(
 );
 
 // (Opcional pero a veces útil)
-app.options("*", cors());
+// app.options("*", cors());
 
 
 // ---------- ENV ----------

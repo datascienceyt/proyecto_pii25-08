@@ -1928,6 +1928,29 @@ body,
   font-size: 0.85rem;
 }
 
+/* columnas principales */
+.bases-indicators-table .col-source {
+  width: 10%;
+}
+
+.bases-indicators-table .col-indicator {
+  width: 12%;       /* más angosta */
+}
+
+.bases-indicators-table .col-description {
+  width: 20%;       /* más ancha */
+}
+
+/* las 8 columnas pequeñas (Nac, Prov, Cant, Parr, Anual, Mensual, Desde, Hasta) */
+.bases-indicators-table .col-small {
+  width: 6%;        /* un poco más angostas cada una */
+}
+
+/* ficha metodológica, más ancha para que quepa el texto del enlace */
+.bases-indicators-table .col-methodology {
+  width: 14%;
+}
+
 /* Ajuste para móviles: volvemos a ancho normal dentro del layout */
 @media (max-width: 960px) {
   .bases-section-wide .bases-indicators-table-wrapper {
@@ -1936,34 +1959,6 @@ body,
     transform: none;
     padding: 1rem;
   }
-}
-
-.bases-indicators-table {
-  width: 100%;
-  border-collapse: collapse;
-  table-layout: fixed;     /* fuerza a que las columnas se ajusten */
-  font-size: 0.85rem;
-}
-
-/* Wrapper más ancho que el texto para que haya más espacio horizontal */
-.bases-indicators-table-wrapper {
-  margin-top: 1.5rem;
-  padding: 1.25rem 2rem;
-  border-radius: 1rem;
-  background: #eef3ff;
-  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
-  width: calc(100% + 4rem);    /* ensancha la tarjeta */
-  margin-left: -2rem;          /* ajustes: si se ve muy ancho, reduce este valor */
-  margin-right: -2rem;
-  overflow-x: auto;            /* por si la pantalla es muy pequeña */
-}
-
-/* Tabla principal */
-.bases-indicators-table {
-  width: 100%;
-  border-collapse: collapse;
-  table-layout: fixed;         /* reparte el ancho según colgroup */
-  font-size: 0.85rem;
 }
 
 /* Distribución de columnas: más espacio a fórmula */
@@ -2049,7 +2044,7 @@ body,
 }
 
 /* Colores por fuente (incluyendo Latinobarómetro) */
-.bases-indicators-row--enemduecuador td:first-child {
+.bases-indicators-row--enemdu td:first-child {
   font-weight: 600;
   color: #2563eb; /* azul */
 }
