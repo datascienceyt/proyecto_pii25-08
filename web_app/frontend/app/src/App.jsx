@@ -1,8 +1,9 @@
 // src/App.jsx
 import React from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import HomePage from "./pages/HomePage";
 import ProjectPage from "./pages/ProjectPage";
 import MethodologyPage from "./pages/MethodologyPage";
 import BasesUsadasPage from "./pages/BasesUsadasPage";
@@ -17,12 +18,7 @@ const App = () => {
       <Header />
       <main className="app-main">
         <Routes>
-          {/* Homepage → redirige a "Sobre el Proyecto" */}
-          <Route
-            path="/"
-            element={<Navigate to="/sobre-el-proyecto" replace />}
-          />
-
+          <Route path="/" element={<HomePage />} />
           <Route path="/sobre-el-proyecto" element={<ProjectPage />} />
           <Route path="/metodologia" element={<MethodologyPage />} />
           <Route path="/bases-usadas" element={<BasesUsadasPage />} />
